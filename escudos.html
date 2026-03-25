@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Escudos Heráldicos. Arte mediante corte y grabado láser.">
+    <title>Escudos Heráldicos | Artemichi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .category-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--clr-bg), #110e0c);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .category-subtitle {
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .category-desc {
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .product-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--clr-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--clr-gold);
+            box-shadow: var(--glow);
+        }
+        .feature-card h4 {
+            color: var(--clr-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+        .feature-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-text-muted);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        .materials-section {
+            background: #110e0c;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .materials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .material-badge {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--clr-gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--clr-text);
+        }
+        .material-badge span {
+            color: var(--clr-gold);
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .cta-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--clr-gold);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(18, 15, 12, 0.95); backdrop-filter: blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border: 1px solid var(--clr-gold); padding: 5px 15px; border-radius: 20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header class="category-hero text-center fade-in">
+        <h2 class="category-subtitle">Colección 05</h2>
+        <h1 class="category-title">Escudos Heráldicos</h1>
+        <p class="category-desc">El orgullo de tu linaje tallado para siempre. Representación familiar, heráldica e historia elaboradas con la máxima fidelidad y grabado láser.</p>
+        <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4">Consultar Precios por WhatsApp</a>
+    </header>
+
+    <section class="product-types">
+        <div class="container text-center pt-5">
+            <h3 class="section-heading">Modelos Disponibles</h3>
+            <p class="text-muted mb-3">Escudos personalizados con más de 30 años de experiencia en heráldica.</p>
+        </div>
+        <div class="product-features-grid">
+            <div class="feature-card fade-in">
+                <div id="slideshow-pared" style="position: relative; width: 100%; aspect-ratio: 4/5; margin-bottom: 1.5rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.4); overflow: hidden;">
+                    <img class="ss-img" src="assets/catalogo/escudos/1.webp" alt="Escudo Pared 1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; opacity: 1; z-index: 3;">
+                    <img class="ss-img" src="assets/catalogo/escudos/2.webp" alt="Escudo Pared 2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; opacity: 0; z-index: 2;">
+                    <img class="ss-img" src="assets/catalogo/escudos/5.webp" alt="Escudo Pared 3" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; opacity: 0; z-index: 1;">
+                </div>
+                <h4>Escudos para Pared</h4>
+                <p>Reproducción espectacular a gran formato para presidir estancias, salones y pasillos blasonados. La máxima inmersión de tu linaje.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/escudos/4.webp" alt="Escudo Heráldico de Sobremesa" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 4/5; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Escudos de Sobremesa</h4>
+                <p>Elegancia en cada escritorio y estantería. Base estable y firmeza para mantener vivos tus orígenes en cualquier rincón del hogar u oficina.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/escudos/3.webp" alt="Llavero Heráldico Premium" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 4/5; border: 1px solid rgba(212, 175, 55, 0.4); background: #fff;">
+                <h4>Llaveros Heráldicos</h4>
+                <p>El emblema familiar siempre contigo. Disponibles en diferentes opciones de grabado a elegir: una cara, cara + reverso con mensaje, o dos escudos cruzando linajes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="materials-section fade-in">
+        <h3 class="section-heading" style="font-size: 2rem;">Acabados y Materiales</h3>
+        <p class="mb-5 text-muted">Construimos la historia de tu familia usando maderas nobles y acabados selectos.</p>
+        
+        <div class="materials-container" style="max-width: 1000px; text-align: left; background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 175, 55, 0.4); padding: 2.5rem; border-radius: 12px; margin-bottom: 4rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <ul style="list-style: none; padding: 0; margin: 0; color: var(--clr-text-muted); font-size: 1.15rem; line-height: 2;">
+                <li style="margin-bottom: 1.8rem; display: flex; align-items: flex-start; gap: 15px;">
+                    <div style="font-size: 1.5rem;">🔑</div> 
+                    <div><strong class="gold-text" style="font-size: 1.25rem; display: block; margin-bottom: 0.2rem;">Llaveros Heráldicos</strong> Grabados a corte láser con extrema precisión sobre resistente <strong style="color: var(--text);">madera de haya</strong>.</div>
+                </li>
+                <li style="margin-bottom: 1.8rem; display: flex; align-items: flex-start; gap: 15px;">
+                    <div style="font-size: 1.5rem;">♟️</div> 
+                    <div><strong class="gold-text" style="font-size: 1.25rem; display: block; margin-bottom: 0.2rem;">Escudos de Sobremesa</strong> Impresión en muy alta calidad de nitidez cromática sobre contrachapado de Okumen de 3mm. Descubren estabilidad en una elegante peana de okumen de 5mm, debidamente protegida por debajo con una base de fieltro.</div>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 15px;">
+                    <div style="font-size: 1.5rem;">🛡️</div> 
+                    <div><strong class="gold-text" style="font-size: 1.25rem; display: block; margin-bottom: 0.2rem;">Escudos de Pared</strong> 
+                    El blasón trasero puede fabricarse en contrachapado de <strong style="color: var(--text);">okumen de 5mm</strong>, o bien usando base gruesa de madera de <strong style="color: var(--text);">pino de 15mm</strong>. Ambas pueden ir teñidas al gusto, pero el efecto exclusivo de rústico <strong style="color: var(--text);">"quemado a fuego"</strong> solo lo aplicamos sobre la madera sólida de pino debido a su extrema resistencia al calor.<br> 
+                    El propio escudo frontal puede imprimirse a todo color sobre foam ligero de 5mm, o bien ser grabado majestuosamente sobre <strong style="color: var(--text);">metacrilato símil metalizado (dorado o plateado)</strong> (esto último dependerá de lo que permita la armería y el tipo de colores de tu escudo heráldico original).</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta-section fade-in">
+        <div class="container text-center">
+            <h3>Magia en cada detalle.</h3>
+            <p class="mb-4 text-muted mt-3" style="font-size: 1.2rem;">Atención exclusiva para cada cliente.</p>
+            <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+        
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
+
+        // Slideshow Crossfade para Escudo de Pared
+        const ssImages = document.querySelectorAll('#slideshow-pared .ss-img');
+        if (ssImages.length > 0) {
+            let currentIndex = 0;
+            setInterval(() => {
+                const nextIndex = (currentIndex + 1) % ssImages.length;
+                // Prepare next image
+                ssImages[nextIndex].style.zIndex = '2';
+                ssImages[nextIndex].style.opacity = '1';
+                
+                // Fade out current image revealing next
+                ssImages[currentIndex].style.zIndex = '3';
+                ssImages[currentIndex].style.opacity = '0';
+                
+                // Clean up z-index after transition
+                setTimeout(() => {
+                    ssImages[currentIndex].style.zIndex = '1';
+                    currentIndex = nextIndex;
+                }, 1500); 
+            }, 4500); // 3s static + 1.5s fade
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Natalicios. Arte mediante corte y grabado láser.">
+    <title>Natalicios | Artemichi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .category-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--clr-bg), #110e0c);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .category-subtitle {
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .category-desc {
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .product-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--clr-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--clr-gold);
+            box-shadow: var(--glow);
+        }
+        .feature-card h4 {
+            color: var(--clr-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+        .feature-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-text-muted);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        .materials-section {
+            background: #110e0c;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .materials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .material-badge {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--clr-gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--clr-text);
+        }
+        .material-badge span {
+            color: var(--clr-gold);
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .cta-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--clr-gold);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(18, 15, 12, 0.95); backdrop-filter: blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border: 1px solid var(--clr-gold); padding: 5px 15px; border-radius: 20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header class="category-hero text-center fade-in">
+        <h2 class="category-subtitle">Colección 01</h2>
+        <h1 class="category-title">Natalicios</h1>
+        <p class="category-desc">El mejor comienzo merece el regalo más especial. Transformamos el instante mágico del nacimiento en un recuerdo eterno, artesanal y personalizado.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4">Consultar Precios por WhatsApp</a>
+        </div>
+    </header>
+
+    <section class="product-types">
+        <div class="container text-center pt-5">
+            <h3 class="section-heading">Modelos Disponibles</h3>
+            <p class="text-muted mb-3">Diseños 100% personalizados para dar la bienvenida al nuevo miembro de la familia</p>
+        </div>
+        <div class="product-features-grid">
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/natalicios/4.webp" alt="Natalicio Diseño Nube" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Diseño Nube</h4>
+                <p>Nombre, fecha, hora, peso y talla grabados en madera con espacio destinado para foto del bebé.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/natalicios/1.webp" alt="Natalicio Dragon Ball" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Diseño DragonBall</h4>
+                <p>¡FUUU-SIÓN... YA! El resultado más perfecto y poderoso de la unión de papá y mamá, inmortalizado en un diseño de su anime favorito.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/natalicios/5.webp" alt="Natalicio Diseño Sobremesa" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Diseño Sobremesa</h4>
+                <p>Formato elegante, compacto y sutil. Su pequeño tamaño permite integrarlo a la perfección en cualquier espacio o mesita.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/natalicios/2.webp" alt="Natalicio Doble Marco Antonio" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Diseño Doble Marco</h4>
+                <p>Diseño fotográfico destacado. Viene preparado tanto para colgar en pared como con peana de apoyo para sobremesa a elección del cliente.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/natalicios/3.webp" alt="Natalicio Flora Eva" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Diseño Flora</h4>
+                <p>Tamaño grande y llamativo con decoración floral grabada. Viene preparado con peana de apoyo o para colgar según se prefiera.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="materials-section fade-in">
+        <h3 class="section-heading" style="font-size: 2rem;">Acabados Disponibles</h3>
+        <p class="mb-4 text-muted">Configuramos el diseño con materias primas de la máxima calidad.</p>
+        <div class="materials-container">
+            <div class="material-badge" style="flex: 1; max-width: 700px; text-align: left; padding: 2rem;">
+                <div style="font-size: 1.4rem; color: var(--clr-gold); text-align: center; margin-bottom: 1rem;">🪵 Contrachapado de Okumen</div>
+                <span style="font-size: 1.05rem; line-height: 1.6; display: block; color: var(--clr-text-muted);">
+                    Disponible en acabado <strong class="gold-text">natural, teñido o pintado</strong>. <br><br>
+                    A diferencia de otras maderas comunes, el Okumen destaca por su altísima resistencia a la humedad y su extrema durabilidad en el tiempo, asegurando que un recuerdo tan importante se conserve intacto para toda la vida. Además, es un material sostenible y fuertemente ecológico.
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section fade-in">
+        <div class="container text-center">
+            <h3>Magia en cada detalle.</h3>
+            <p class="mb-4 text-muted mt-3" style="font-size: 1.2rem;">Atención exclusiva para cada cliente.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+        
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
+    </script>
+</body>
+</html>

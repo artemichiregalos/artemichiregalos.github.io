@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Cuadros de Luz. Arte mediante corte y grabado láser.">
+    <title>Cuadros de Luz | Artemichi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .category-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--clr-bg), #110e0c);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .category-subtitle {
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .category-desc {
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .product-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--clr-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--clr-gold);
+            box-shadow: var(--glow);
+        }
+        .feature-card h4 {
+            color: var(--clr-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+        .feature-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-text-muted);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        .materials-section {
+            background: #110e0c;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .materials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .material-badge {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--clr-gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--clr-text);
+        }
+        .material-badge span {
+            color: var(--clr-gold);
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .cta-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--clr-gold);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(18, 15, 12, 0.95); backdrop-filter: blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border: 1px solid var(--clr-gold); padding: 5px 15px; border-radius: 20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header class="category-hero text-center fade-in">
+        <h2 class="category-subtitle">Colección 10</h2>
+        <h1 class="category-title">Cuadros de Luz</h1>
+        <p class="category-desc">Luz, decoración y láser. Una alternativa contemporánea al tradicional cuadro. Una lámina translúcida se enciende mostrando diseños espectaculares que enamoran en la oscuridad.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4">Consultar Precios por WhatsApp</a>
+            <a href="diseños.html?cat=cuadros_de_luz" class="btn mt-4" style="background: rgba(212,175,55,0.1); border: 1px solid var(--clr-gold); color: var(--clr-gold);">Ver Diseños Disponibles</a>
+        </div>
+    </header>
+
+    <section class="product-types">
+        <div class="container text-center pt-5">
+            <h3 class="section-heading">Modelos Destacados</h3>
+            <p class="text-muted mb-3">Imágenes retroiluminadas grabadas con precisión láser milimétrica</p>
+        </div>
+        <div class="product-features-grid">
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/luz/3.webp" alt="Cuadro de luz Metallica" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 3/4; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Marcos Premium Retroiluminados</h4>
+                <p>Bastidor natural trabajado a mano e iluminado mediante tecnología LED integrada para resaltar cada detalle.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/luz/1.webp" alt="Cuadro de luz Harley" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 3/4; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Iluminación Ambiental Controlada</h4>
+                <p>Integración perfecta cálida / fría creando destellos cautivadores e invisibles si están apagados.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/luz/2.webp" alt="Cuadro de luz Águila" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 3/4; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Bodas, Regalos y Negocios</h4>
+                <p>Impresionante para destacar firmas comerciales, aficiones favoritas o captar la atención total a una memoria de pareja.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section fade-in" style="padding: 2rem 2rem 5rem;">
+        <div class="container text-center">
+            <h3 class="section-heading">Más Ejemplos</h3>
+            <p class="text-muted mb-5">El nivel de detalle alcanzado es digno de exposición.</p>
+            <div style="display: flex; justify-content: center; max-width: 600px; margin: 0 auto;">
+                <img src="assets/catalogo/luz/4.webp" alt="Cuadro de luz Gato" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow); border: 2px solid rgba(212, 175, 55, 0.2); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+        </div>
+    </section>
+
+    <section class="materials-section fade-in">
+        <h3 class="section-heading" style="font-size: 2rem;">Acabados Disponibles</h3>
+        <p class="mb-5 text-muted">Configuramos el diseño con materias primas de la máxima calidad.</p>
+        
+        <div class="materials-container" style="max-width: 900px; text-align: left; background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 175, 55, 0.4); padding: 2.5rem; border-radius: 12px; margin-bottom: 4rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <ul style="list-style: none; padding: 0; margin: 0; color: var(--clr-text-muted); font-size: 1.15rem; line-height: 2;">
+                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;">🪟 <span><strong class="gold-text">Marco Exterior:</strong> Fabricado a mano en resistente madera de pino. Puede entregarse al natural o teñido en distintos tonos nobles.</span></li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">💡 <span><strong class="gold-text">Iluminación LED:</strong> Sistema eléctrico oculto en tono cálido o frío. Se alimenta por cómoda entrada USB Tipo-C (compatible con cargadores móviles o powerbanks). Opcionalmente, se puede preparar para alimentación autónoma mediante 4 pilas AA.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta-section fade-in">
+        <div class="container text-center">
+            <h3>Magia en cada detalle.</h3>
+            <p class="mb-4 text-muted mt-3" style="font-size: 1.2rem;">Atención exclusiva para cada cliente.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
+                <a href="diseños.html?cat=cuadros_de_luz" class="btn mt-2" style="font-size: 1.1rem; padding: 15px 30px; background: rgba(212,175,55,0.1); border: 1px solid var(--clr-gold); color: var(--clr-gold);">Ver Más Diseños</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+        
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
+    </script>
+</body>
+</html>

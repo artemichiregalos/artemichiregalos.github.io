@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Frases y Nombres para pared. Arte mediante corte y grabado láser.">
+    <title>Frases y Nombres | Artemichi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .category-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--clr-bg), #110e0c);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .category-subtitle {
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .category-desc {
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .product-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--clr-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--clr-gold);
+            box-shadow: var(--glow);
+        }
+        .feature-card h4 {
+            color: var(--clr-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+        
+        .materials-section {
+            background: #110e0c;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .materials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .material-badge {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--clr-gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--clr-text);
+        }
+        .material-badge span {
+            color: var(--clr-gold);
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .cta-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--clr-gold);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(18, 15, 12, 0.95); backdrop-filter: blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border: 1px solid var(--clr-gold); padding: 5px 15px; border-radius: 20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header class="category-hero text-center fade-in">
+        <h2 class="category-subtitle">Colección 04</h2>
+        <h1 class="category-title">Frases y Nombres</h1>
+        <p class="category-desc">Las palabras que viven en tu casa. Una frase, un apellido, un lugar, una fecha. Lo que sea que quieras decir sin palabras, grabado para siempre en tu pared.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#fuentes" class="btn primary-btn mt-4">Probar Tipografías</a>
+            <a href="diseños.html?cat=frases" class="btn mt-4" style="background: rgba(212,175,55,0.1); border: 1px solid var(--clr-gold); color: var(--clr-gold);">Ver Ejemplos Disponibles</a>
+        </div>
+    </header>
+
+    <section class="product-types">
+        <div class="product-features-grid">
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/frases/1.webp" alt="Home Sweet Home Madera" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Frases para el Hogar</h4>
+                <p>Nombres de familia o frases cálidas de bienvenida como "Home Sweet Home", ideales para recibidores y salones.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/frases/2.webp" alt="Frase Piensa Sueña Cree Atrévete" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Frases Motivacionales</h4>
+                <p>La cita que más te inspire. Convierte cualquier pared vacía en una gran declaración de intenciones.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/frases/3.webp" alt="Frase Don't Walk Dance" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Tu Frase, Tus Letras</h4>
+                <p>Completamente libre y personalizable. Letras que llevan tu eslogan y estilo hasta cualquier habitación.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/frases/4.webp" alt="Nombre Infantil Spiderman Lander" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 1/1; border: 1px solid rgba(212, 175, 55, 0.4);">
+                <h4>Nombres Infantiles y Temáticos</h4>
+                <p>Su nombre con su temática favorita, como Spider-Man o su héroe preferido. Cortado a láser a todo color.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="materials-section fade-in">
+        <h3 class="section-heading" style="font-size: 2rem;">Materiales y Acabados</h3>
+        <p class="mb-5 text-muted">Disponemos de las mejores materias primas para dar vida a tus palabras.</p>
+        
+        <div class="materials-container" style="max-width: 900px; text-align: left; background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 175, 55, 0.4); padding: 2.5rem; border-radius: 12px; margin-bottom: 4rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <ul style="list-style: none; padding: 0; margin: 0; color: var(--clr-text-muted); font-size: 1.15rem; line-height: 2;">
+                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;">🪵 <span><strong class="gold-text">Contrachapado de Okumen:</strong> Acabados en formato natural o teñido, dejando ver la elegancia de su veta de forma impecable.</span></li>
+                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;">🎨 <span><strong class="gold-text">Foam Pintado o Vinilado:</strong> Pegado y montado sobre una sólida base de contrachapado de madera para darle toda la consistencia necesaria manteniendo el estilo del color o vinilo.</span></li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">✨ <span><strong class="gold-text">Metacrilato:</strong> También disponible en metacrilato negro brillo para un toque de distinción y elegancia insuperable.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="fuentes" class="fade-in" style="padding: 4rem 0; background: var(--clr-bg);">
+        <div class="container text-center mb-4">
+            <h3 class="section-heading" style="font-size: 2.2rem; margin-bottom: 0.5rem;">Crea tu Diseño en Tiempo Real</h3>
+            <p class="text-muted" style="font-size: 1.1rem; max-width: 600px; margin: 0 auto; padding: 0 1rem;">Prueba tu nombre, apellido o frase favorita en nuestras tipografías premium, garantizadas para corte láser.</p>
+        </div>
+        <iframe src="fuentes.html" style="width: 100%; height: 85vh; min-height: 700px; border: none; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1);" title="Artemichi - Diseñador de Fuentes"></iframe>
+    </section>
+
+    <section class="cta-section fade-in">
+        <div class="container text-center">
+            <h3>Tu frase. Tu pared. Tu historia.</h3>
+            <p class="mb-4 text-muted mt-3" style="font-size: 1.2rem;">¿Listo para darle forma a tus palabras?</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
+                <a href="diseños.html?cat=frases" class="btn mt-2" style="font-size: 1.1rem; padding: 15px 30px; background: rgba(212,175,55,0.1); border: 1px solid var(--clr-gold); color: var(--clr-gold);">Ver Más Ejemplos</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth fade-in on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
+    </script>
+</body>
+</html>

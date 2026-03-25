@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Arte mediante corte y grabado láser de precisión. Transforma ideas en objetos únicos con alma.">
+    <title>Artemichi | Corte y Grabado Láser de Precisión</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#inicio" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#filosofia">Filosofía</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="diseños.html">Buscador de Diseños</a></li>
+            <li><a href="#materiales">Materiales</a></li>
+            <li><a href="#fuentes">Fuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h2 class="subtitle">Precisión Láser · Pasión Artesanal</h2>
+            <h1 class="title">Arte en cada <span class="gold-text">detalle.</span><br>Magia en cada <span class="gold-text">corte.</span></h1>
+            <p class="description">Transformamos ideas en objetos únicos con alma, uniendo tecnología de vanguardia y artesanía.</p>
+            <a href="#catalogo" class="btn primary-btn">Explorar Catálogo</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <section id="filosofia" class="philosophy">
+        <div class="container philosophy-grid">
+            <div class="philosophy-text fade-in">
+                <h3 class="section-heading">Nuestra Esencia</h3>
+                <p>En Artemichi no fabricamos en serie; <strong>diseñamos experiencias</strong> y creamos piezas que cuentan historias personales.</p>
+                <p>Nuestra propuesta de valor une la asombrosa tecnología del corte láser con la calidez del trabajo manual. Nos inspiramos en los recuerdos y vivencias de cada persona para grabar a fuego momentos inolvidables.</p>
+                <p class="gold-text">El único límite es tu imaginación.</p>
+            </div>
+            <div class="philosophy-image fade-in">
+                <div class="image-placeholder acrylic-effect">
+                    <img src="assets/esencia.webp" alt="Máquina láser de Artemichi grabando sobre madera" class="cover-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="catalog">
+        <div class="container">
+            <h3 class="section-heading text-center">Colecciones Únicas</h3>
+            <p class="section-subheading text-center mb-4">Piezas elaboradas a medida para cada ocasión.</p>
+            
+            <div class="catalog-grid">
+                <!-- 01 Natalicios -->
+                <div class="card fade-in" onclick="window.location.href='natalicios.html'" style="cursor:pointer;" title="Ver Colección: Natalicios">
+                    <div class="card-number">01</div>
+                    <div class="card-content">
+                        <h4>Natalicios</h4>
+                        <p>Placas personalizadas para bebés con datos de nacimiento. Formatos temáticos: cigüeñas, anime o superhéroes.</p>
+                    </div>
+                </div>
+
+                <!-- 02 Relojes de Pared -->
+                <div class="card fade-in" onclick="window.location.href='relojes.html'" style="cursor:pointer;" title="Ver Colección: Relojes">
+                    <div class="card-number">02</div>
+                    <div class="card-content">
+                        <h4>Relojes de Pared</h4>
+                        <p>Piezas funcionales y artísticas de ciudades, cultura pop, steampunk, en formatos monocapa o bicapa.</p>
+                    </div>
+                </div>
+
+                <!-- 03 Cuadros Multicapa -->
+                <div class="card fade-in" onclick="window.location.href='multicapa.html'" style="cursor:pointer;" title="Ver Colección: Cuadros Multicapa">
+                    <div class="card-number">03</div>
+                    <div class="card-content">
+                        <h4>Cuadros Multicapa</h4>
+                        <p>Arte tridimensional con profundidad impactante mediante capas superpuestas de madera, MDF o foam.</p>
+                    </div>
+                </div>
+
+                <!-- 04 Frases y Nombres -->
+                <div class="card fade-in" onclick="window.location.href='frases.html'" style="cursor:pointer;" title="Ver Colección: Frases y Nombres">
+                    <div class="card-number">04</div>
+                    <div class="card-content">
+                        <h4>Frases y Nombres <span style="color: var(--clr-gold); font-size: 0.9em;">→</span></h4>
+                        <p>Letras corpóreas de pared, nombres infantiles temáticos y frases motivacionales para dar vida a tus espacios.</p>
+                    </div>
+                </div>
+
+                <!-- 05 Escudos Heráldicos -->
+                <div class="card fade-in" onclick="window.location.href='escudos.html'" style="cursor:pointer;" title="Ver Colección: Escudos">
+                    <div class="card-number">05</div>
+                    <div class="card-content">
+                        <h4>Escudos Heráldicos</h4>
+                        <p>Tu historia familiar grabada a fuego. Disponibles en formato pared, sobremesa y llaveros (+30 años de experiencia).</p>
+                    </div>
+                </div>
+
+                <!-- 06 Shadowbox -->
+                <div class="card fade-in" onclick="window.location.href='shadowbox.html'" style="cursor:pointer;" title="Ver Colección: Shadowbox">
+                    <div class="card-number">06</div>
+                    <div class="card-content">
+                        <h4>Shadowbox</h4>
+                        <p>Mágicas escenas de capas de papel con iluminación LED integrada. Paisajes, anime y piezas conmemorativas.</p>
+                    </div>
+                </div>
+
+                <!-- 07 Marcos para Fotos -->
+                <div class="card fade-in" onclick="window.location.href='marcos.html'" style="cursor:pointer;" title="Ver Colección: Marcos para Fotos">
+                    <div class="card-number">07</div>
+                    <div class="card-content">
+                        <h4>Marcos para Fotos</h4>
+                        <p>Diseños exclusivos, estructurados y totalmente personalizados para enmarcar cada gran recuerdo.</p>
+                    </div>
+                </div>
+
+                <!-- 08 Llaveros -->
+                <div class="card fade-in" onclick="window.location.href='llaveros.html'" style="cursor:pointer;" title="Ver Colección: Llaveros">
+                    <div class="card-number">08</div>
+                    <div class="card-content">
+                        <h4>Llaveros Personalizados</h4>
+                        <p>En madera de haya, acrílico brillante con relleno o aluminio anodizado para mascotas y uso diario.</p>
+                    </div>
+                </div>
+
+                <!-- 09 Cuadros Monocapa -->
+                <div class="card fade-in" onclick="window.location.href='monocapa.html'" style="cursor:pointer;" title="Ver Colección: Cuadros Monocapa">
+                    <div class="card-number">09</div>
+                    <div class="card-content">
+                        <h4>Cuadros Monocapa</h4>
+                        <p>Minimalismo con alma en una sola pieza, ideales para siluetas detalladas, mandalas y pop culture.</p>
+                    </div>
+                </div>
+
+                <!-- 10 Cuadros de Luz -->
+                <div class="card fade-in" onclick="window.location.href='luz.html'" style="cursor:pointer;" title="Ver Colección: Cuadros de Luz">
+                    <div class="card-number">10</div>
+                    <div class="card-content">
+                        <h4>Cuadros de Luz</h4>
+                        <p>Grabado láser sobre lámina de acrílico con iluminación LED (cálida o fría) en marcos de pino teñido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="materiales" class="materials-finishes">
+        <div class="container materials-grid">
+            <div class="materials-info fade-in">
+                <h3 class="section-heading">Acabados y Materiales</h3>
+                <p>Nuestra selección de materias primas garantiza durabilidad y una estética premium inigualable.</p>
+                
+                <ul class="materials-list">
+                    <li><strong>Bases y Soportes:</strong> Contrachapado de okumen, foam, madera de pino y metacrilato negro.</li>
+                    <li><strong>Gama de Colores:</strong> Amplia carta de colores estándar, fluorescentes (Amarillo, Verde, Fucsia) y metalizados (Oro, Plata, Bronce).</li>
+                    <li><strong>Tintes para Madera:</strong> Deja ver la veta en acabados de Pino (de serie), Roble, Castaño, Cerezo, Caoba, Nogal, Wengué y Ébano.</li>
+                    <li><strong>Gama de Vinilos:</strong> Negro Brillante, Plateado, Dorado y Fibra de Carbono.</li>
+                </ul>
+            </div>
+            
+            <div class="finishes-showcase fade-in">
+                <div class="wood-swatches">
+                    <div class="swatch pino" title="Pino"></div>
+                    <div class="swatch roble" title="Roble"></div>
+                    <div class="swatch wengue" title="Wengué"></div>
+                    <div class="swatch metacrilato" title="Metacrilato Negro 3mm"></div>
+                    <div class="swatch plata" title="Plateado"></div>
+                    <div class="swatch oro" title="Vinilo Dorado"></div>
+                    <div class="swatch carbono" title="Fibra Carbono"></div>
+                    <div class="swatch rojo" title="Color: Rojo Vivo"></div>
+                </div>
+                <button id="open-colors-modal" class="btn primary-btn mt-4" style="width: 100%; text-align: center;">Ver Carta de Colores Interactiva</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Carta de Colores -->
+    <div id="colors-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="section-heading text-center" style="font-size: 2rem;">Carta de Colores</h3>
+            <p class="text-center mb-4 text-muted">Haz clic en un color para ver nuestras combinaciones sugeridas.</p>
+            
+            <div class="modal-layout">
+                <div class="colors-grid" id="colors-grid">
+                    <!-- Los colores se inyectarán mediante JavaScript -->
+                </div>
+                
+                <div class="color-recommendations" id="color-recommendations">
+                    <div class="empty-state">
+                        <p>Selecciona un color para ver con qué combina mejor...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="fuentes" class="font-selector" style="background: radial-gradient(circle at center, #1b1713 0%, var(--clr-bg) 100%);">
+        <div class="container text-center">
+            <h3 class="section-heading">Personaliza tu estilo</h3>
+            <p class="mb-4" style="color: var(--clr-text-muted);">Usa nuestro selector interactivo para encontrar la tipografía perfecta para tu diseño láser.</p>
+            
+            <div class="iframe-container fade-in" style="width: 100%; max-width: 900px; margin: 0 auto; box-shadow: var(--glow-strong); border-radius: 12px; overflow: hidden; border: 2px solid var(--clr-gold);">
+                <iframe src="fuentes.html" style="width: 100%; height: 850px; border: none; background: transparent;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container text-center">
+            <h3 class="section-heading">Hagamos tu idea realidad</h3>
+            <p>Atención directa y personalizada para definir todos los detalles de tu pieza.</p>
+            
+            <div class="contact-methods">
+                <a href="https://wa.me/34711240002" target="_blank" class="contact-card whatsapp">
+                    <div class="icon">WhatsApp</div>
+                    <h4>711 240 002</h4>
+                    <p>Contáctanos para atención directa</p>
+                </a>
+                
+                <a href="mailto:artemichi@artemichi.es" class="contact-card email">
+                    <div class="icon">Email</div>
+                    <h4>artemichi@artemichi.es</h4>
+                    <p>Envíanos tus ideas o bocetos</p>
+                </a>
+            </div>
+
+            <div class="social-links mt-4">
+                <p>Síguenos en nuestras redes sociales:</p>
+                <a href="#" class="social-btn">@artemichiregalos en Instagram</a>
+                <a href="#" class="social-btn">@artemichiregalos en Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

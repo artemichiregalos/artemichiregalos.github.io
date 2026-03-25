@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Marcos para Fotos. Arte mediante corte y grabado láser.">
+    <title>Marcos para Fotos | Artemichi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .category-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--clr-bg), #110e0c);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .category-subtitle {
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .category-desc {
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .product-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--clr-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--clr-gold);
+            box-shadow: var(--glow);
+        }
+        .feature-card h4 {
+            color: var(--clr-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+        .feature-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-text-muted);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+        
+        .materials-section {
+            background: #110e0c;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .materials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .material-badge {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--clr-gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--clr-text);
+        }
+        .material-badge span {
+            color: var(--clr-gold);
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .cta-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--clr-gold);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(18, 15, 12, 0.95); backdrop-filter: blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border: 1px solid var(--clr-gold); padding: 5px 15px; border-radius: 20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header class="category-hero text-center fade-in">
+        <h2 class="category-subtitle">Colección 07</h2>
+        <h1 class="category-title">Marcos para Fotos</h1>
+        <p class="category-desc">Cada momento merece un encuadre espectacular. Transforma un borde básico en el preámbulo visual y narrativo de un recuerdo inquebrantable.</p>
+        <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4">Consultar Precios por WhatsApp</a>
+    </header>
+
+    <section class="product-types">
+        <div class="container text-center pt-5">
+            <h3 class="section-heading">Modelos Disponibles</h3>
+        </div>
+        <div class="product-features-grid">
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/portafotos/1.webp" alt="Portafotos Mamá Te Amamos" style="width:100%; border-radius:8px; margin-bottom:1.5rem; object-fit:cover; aspect-ratio:3/4; border:1px solid rgba(212,175,55,0.4);">
+                <h4>Dedicatorias Familiares</h4>
+                <p>Marcos diseñados para regalar a madres, padres o abuelos, con múltiples huecos fotográficos y detalles grabados a láser.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <img src="assets/catalogo/portafotos/2.webp" alt="Portafotos Parejas Juntos a la Par" style="width:100%; border-radius:8px; margin-bottom:1.5rem; object-fit:cover; aspect-ratio:3/4; border:1px solid rgba(212,175,55,0.4);">
+                <h4>Nombres y Frases Talladas</h4>
+                <p>Acompaña la fotografía de una frase especial, juramento o fecha tallada sobre o bajo el hueco de la imagen principal.</p>
+            </div>
+<div class="feature-card fade-in">
+                <img src="assets/catalogo/portafotos/3.webp" alt="Portafotos Collage Family" style="width:100%; border-radius:8px; margin-bottom:1.5rem; object-fit:cover; aspect-ratio:3/4; border:1px solid rgba(212,175,55,0.4);">
+                <h4>Composiciones Familiares</h4>
+                <p>Diseños como el clásico marco "Family" que combinan fotos verticales y horizontales para agrupar vuestros instantes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="materials-section fade-in">
+        <h3 class="section-heading" style="font-size: 2rem;">Acabados y Formatos</h3>
+        <p class="mb-5 text-muted">Configuramos cada marco portafotos con dimensiones y maderas al gusto del cliente.</p>
+        
+        <div class="materials-container" style="max-width: 900px; text-align: left; background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 175, 55, 0.4); padding: 2.5rem; border-radius: 12px; margin-bottom: 4rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <ul style="list-style: none; padding: 0; margin: 0; color: var(--clr-text-muted); font-size: 1.15rem; line-height: 2;">
+                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;">📐 <span><strong class="gold-text">Medidas de la Fotografía:</strong> Realizamos los huecos con precisión a la medida estándar de foto de 10x15cm, o fabricamos el diseño a la medida especial requerida que el cliente nos indique.</span></li>
+                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;">🪵 <span><strong class="gold-text">Material Base:</strong> Trabajamos exclusivamente con contrachapado de Okumen de 3 o 5 mm de grosor, pudiendo dejarse el material en su estado teñido o aplicar pintura estética.</span></li>
+                <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;">💡 <span><strong class="gold-text">Estructura y Exposición:</strong> El portafotos puede disponerse con estructura de pie para apoyarlo elegantemente de sobremesa, o bien prepararse liso para ser colgado en pared.</span></li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">📸 <span><strong class="gold-text">Servicio de Impresión (Opcional):</strong> El marco se entrega de base sin fotografías, para que incluyas las tuyas. Pero <strong style="color: var(--text);">opcionalmente</strong> te ofrecemos el servicio de imprimirte nosotros mismos las fotos deseadas en papel fotográfico brillo o mate y entregarte el conjunto terminado listo para regalar.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta-section fade-in">
+        <div class="container text-center">
+            <h3>Magia en cada detalle.</h3>
+            <p class="mb-4 text-muted mt-3" style="font-size: 1.2rem;">Atención exclusiva para cada cliente.</p>
+            <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+        
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
+    </script>
+</body>
+</html>
