@@ -23,18 +23,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Smooth Scroll for Navigation Links
     document.querySelectorAll('.nav-links a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
+            const href = this.getAttribute('href');
+            if(href === '#') {
+                e.preventDefault();
+                return;
+            }
             
-            navLinks.classList.remove("active"); // close mobile menu
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            if (href.includes('#')) {
+                const hash = '#' + href.split('#')[1];
+                const targetElement = document.querySelector(hash);
+                
+                // Si el elemento existe en ESTA página, hacemos scroll suave
+                if (targetElement) {
+                    e.preventDefault();
+                    navLinks.classList.remove("active");
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Si NO existe (estamos en otra página), no bloqueamos la navegación.
+                // El navegador nos llevará naturalmente a index.html#seccion
             }
         });
     });
