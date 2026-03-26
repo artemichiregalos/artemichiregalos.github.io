@@ -746,6 +746,9 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .hero-content {
+        padding-top: 4rem; /* Push content down away from the fixed navbar */
+    }
     .hero .subtitle {
         font-size: 0.85rem;
         letter-spacing: 2px;

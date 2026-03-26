@@ -149,27 +149,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Render colors
-    colorChart.forEach((color, index) => {
-        const item = document.createElement("div");
-        item.classList.add("color-item");
-        item.style.backgroundColor = color.hex;
-        
-        // Add name explicitly
-        const nameLabel = document.createElement("div");
-        nameLabel.classList.add("color-name");
-        
-        // If the color is too bright, make text dark? Standard is white with background map overlay.
-        nameLabel.textContent = color.name;
-        item.appendChild(nameLabel);
-        
-        item.addEventListener("click", () => {
-            document.querySelectorAll(".color-item").forEach(c => c.classList.remove("selected"));
-            item.classList.add("selected");
-            showRecommendations(color, index);
+    if (colorsGrid) {
+        colorChart.forEach((color, index) => {
+            const item = document.createElement("div");
+            item.classList.add("color-item");
+            item.style.backgroundColor = color.hex;
+            
+            // Add name explicitly
+            const nameLabel = document.createElement("div");
+            nameLabel.classList.add("color-name");
+            
+            // If the color is too bright, make text dark? Standard is white with background map overlay.
+            nameLabel.textContent = color.name;
+            item.appendChild(nameLabel);
+            
+            item.addEventListener("click", () => {
+                document.querySelectorAll(".color-item").forEach(c => c.classList.remove("selected"));
+                item.classList.add("selected");
+                showRecommendations(color, index);
+            });
+            
+            colorsGrid.appendChild(item);
         });
-        
-        colorsGrid.appendChild(item);
-    });
+    }
 
     function showRecommendations(selectedColor, index) {
         // Always aim for a good neutral as one of the recommendations
