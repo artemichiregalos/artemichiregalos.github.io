@@ -129,13 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const recommendationsPanel = document.getElementById("color-recommendations");
 
     // Open Modal
-    openModalBtn.addEventListener("click", () => {
+    if(openModalBtn) openModalBtn.addEventListener("click", () => {
         modal.classList.add("show");
         document.body.style.overflow = "hidden"; // Prevent background scroll
     });
 
     // Close Modal
-    closeModalBtn.addEventListener("click", () => {
+    if(closeModalBtn) closeModalBtn.addEventListener("click", () => {
         modal.classList.remove("show");
         document.body.style.overflow = "auto";
     });
