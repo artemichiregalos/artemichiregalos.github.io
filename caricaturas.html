@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi - Caricaturas personalizadas impresas en alta calidad sobre madera. 7 estilos artísticos y 3 formatos: muñecos, cuadros tridimensionales y cuadros de luz.">
+    <title>Caricaturas | Artemichi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ═══════════ HERO ═══════════ */
+        .category-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(160deg, #1a1208 0%, var(--clr-bg) 60%);
+            border-bottom: 1px solid rgba(212,175,55,0.08);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .category-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: 50%;
+            transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(ellipse, rgba(180,140,60,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .gold-line {
+            width: 60px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--clr-gold), transparent);
+            margin: 0 auto 1.5rem;
+        }
+        .category-subtitle {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--clr-gold);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .category-title em {
+            font-style: italic;
+            color: var(--clr-gold);
+        }
+        .category-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            max-width: 560px;
+            margin: 1.2rem auto 0;
+            line-height: 1.7;
+        }
+
+        /* ═══════════ SECCIÓN GENÉRICA ═══════════ */
+        .content-section {
+            padding: 3.5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--clr-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .section-title-alt {
+            font-family: 'Cinzel', serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--clr-text);
+            margin-bottom: 0.8rem;
+        }
+        .section-body {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            line-height: 1.8;
+            max-width: 680px;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(212,175,55,0.08);
+            margin: 0;
+        }
+
+        /* ═══════════ FOTO ORIGINAL ═══════════ */
+        .original-photo-section {
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .original-photo-section img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(212,175,55,0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        .original-photo-section .photo-caption {
+            font-size: 0.85rem;
+            color: var(--clr-text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        .original-photo-section .photo-caption strong {
+            color: var(--clr-gold);
+        }
+
+        /* ═══════════ ESTILOS GRID ═══════════ */
+        .estilos-intro {
+            text-align: center;
+            padding: 3.5rem 2rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .estilos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 0 2rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .estilo-card {
+            background: var(--clr-card);
+            border: 1px solid rgba(212,175,55,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: default;
+        }
+        .estilo-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--clr-gold);
+            box-shadow: var(--glow);
+        }
+        .estilo-card img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            display: block;
+        }
+        .estilo-info {
+            padding: 1.2rem 1rem;
+        }
+        .estilo-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--clr-gold);
+            margin-bottom: 0.4rem;
+        }
+        .estilo-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ═══════════ FORMATOS ═══════════ */
+        .formatos-section {
+            padding: 0 2rem 3.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .formatos-header {
+            text-align: center;
+            padding: 3.5rem 0 2.5rem;
+        }
+        .formato-block {
+            background: var(--clr-card);
+            border: 1px solid rgba(212,175,55,0.12);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .formato-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clr-gold), #d4b86a, var(--clr-gold));
+        }
+        .formato-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .formato-inner.reverse {
+            direction: rtl;
+        }
+        .formato-inner.reverse > * {
+            direction: ltr;
+        }
+        @media (max-width: 768px) {
+            .formato-inner, .formato-inner.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+        }
+        .formato-text {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .formato-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--clr-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .formato-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--clr-text);
+            margin-bottom: 1rem;
+        }
+        .formato-desc {
+            font-size: 0.95rem;
+            color: var(--clr-text-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .formato-details {
+            list-style: none;
+            padding: 0;
+            border-top: 1px solid rgba(212,175,55,0.12);
+            padding-top: 1rem;
+        }
+        .formato-details li {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+            padding: 0.25rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .formato-details li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--clr-gold);
+            font-size: 0.7rem;
+        }
+        .formato-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .formato-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .formato-gallery.single img {
+            grid-column: 1 / -1;
+        }
+
+        /* ═══════════ PROCESO ═══════════ */
+        .proceso-section {
+            background: #0a0905;
+            border-top: 1px solid rgba(212,175,55,0.08);
+            border-bottom: 1px solid rgba(212,175,55,0.08);
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+        .proceso-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+            max-width: 700px;
+            margin: 2.5rem auto 0;
+        }
+        .paso {
+            flex: 1;
+            min-width: 140px;
+            padding: 1.5rem 1rem;
+            position: relative;
+        }
+        .paso:not(:last-child)::after {
+            content: '›';
+            position: absolute;
+            right: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+        }
+        @media (max-width: 600px) {
+            .paso:not(:last-child)::after { display: none; }
+        }
+        .paso-num {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: rgba(212,175,55,0.15);
+            line-height: 1;
+            margin-bottom: 0.6rem;
+        }
+        .paso-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--clr-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+        .paso-desc {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            line-height: 1.5;
+        }
+
+        /* ═══════════ CTA ═══════════ */
+        .cta-final {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta-quote {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--clr-gold);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .cta-body {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .cta-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 1px solid var(--clr-gold);
+            color: var(--clr-gold);
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 0.9rem 2.2rem;
+            cursor: pointer;
+            transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+            text-decoration: none;
+            border-radius: 2px;
+        }
+        .cta-btn-outline:hover {
+            background: var(--clr-gold);
+            color: #0d0d0d;
+            box-shadow: var(--glow);
+        }
+        .footnote {
+            font-size: 10px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(18, 15, 12, 0.95); backdrop-filter: blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border: 1px solid var(--clr-gold); padding: 5px 15px; border-radius: 20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <!-- ═══════ HERO ═══════ -->
+    <header class="category-hero fade-in">
+        <div class="gold-line"></div>
+        <h2 class="category-subtitle">Artemichi · Nueva Colección</h2>
+        <h1 class="category-title">Tu foto convertida en<br><em>obra de arte única</em></h1>
+        <p class="category-desc">Transformamos tus fotografías más especiales en caricaturas artísticas de alta calidad, impresas sobre madera y enmarcadas para durar toda una vida.</p>
+    </header>
+
+    <!-- ═══════ INTRO ═══════ -->
+    <section class="content-section fade-in">
+        <div class="section-label">¿Qué son las caricaturas Artemichi?</div>
+        <h2 class="section-title-alt">El regalo más personal que existe</h2>
+        <p class="section-body">Hay momentos que merecen algo más que una fotografía. Un aniversario, una boda, un cumpleaños que no se olvida... Nuestras caricaturas convierten esos instantes en piezas únicas e irrepetibles, ilustradas en el estilo que mejor refleje la personalidad de quien la recibe.</p>
+        <br>
+        <p class="section-body">Cada caricatura se crea a partir de tus fotos y se imprime en alta calidad —en acabado brillo o mate— sobre madera de contrachapado. El resultado: una pieza con alma, con carácter, con historia. La tuya.</p>
+    </section>
+
+    <!-- Foto original -->
+    <div class="original-photo-section fade-in">
+        <img src="assets/catalogo/caricaturas/foto_original.webp" alt="Foto original de ejemplo para caricatura">
+        <p class="photo-caption">A partir de <strong>tu foto</strong> creamos la caricatura en el estilo que elijas</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════ ESTILOS ═══════ -->
+    <div class="estilos-intro fade-in">
+        <div class="section-label">Elige tu estilo</div>
+        <h2 class="section-title-alt">Siete universos artísticos a tu disposición</h2>
+        <p class="section-body" style="margin: 0 auto; text-align: center;">Desde la magia del 3D al trazo limpio del vectorial, cada estilo es una forma de ver el mundo. Elige el que más conecte contigo.</p>
+    </div>
+
+    <div class="estilos-grid">
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_3d.webp" alt="Caricatura estilo 3D Pixar">
+            <div class="estilo-info">
+                <div class="estilo-name">3D</div>
+                <p class="estilo-desc">Volumen, profundidad y luz realista. Tus personajes cobran vida con un acabado cinematográfico que sorprende a primera vista.</p>
+            </div>
+        </div>
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_anime.webp" alt="Caricatura estilo Anime">
+            <div class="estilo-info">
+                <div class="estilo-name">Anime</div>
+                <p class="estilo-desc">El universo de la animación japonesa en tu mano. Rasgos expresivos, colores vibrantes y una energía única que los fans reconocerán al instante.</p>
+            </div>
+        </div>
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_comic.webp" alt="Caricatura estilo Cómic Pop Art">
+            <div class="estilo-info">
+                <div class="estilo-name">Cómic</div>
+                <p class="estilo-desc">Trazo contundente, colores saturados y esa estética de viñeta que convierte a cualquiera en protagonista de su propia aventura gráfica.</p>
+            </div>
+        </div>
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_kawaii.webp" alt="Caricatura estilo Kawaii">
+            <div class="estilo-info">
+                <div class="estilo-name">Kawaii</div>
+                <p class="estilo-desc">Dulzura desbordante y proporciones adorables. El estilo favorito para regalos tiernos, parejas, y todo lo que desprenda ternura.</p>
+            </div>
+        </div>
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_manga.webp" alt="Caricatura estilo Manga">
+            <div class="estilo-info">
+                <div class="estilo-name">Manga</div>
+                <p class="estilo-desc">El clasicismo del manga japonés: líneas limpias, expresión intensa y una elegancia narrativa que trasciende culturas y generaciones.</p>
+            </div>
+        </div>
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_muppets.webp" alt="Caricatura estilo Muppets">
+            <div class="estilo-info">
+                <div class="estilo-name">Muppets</div>
+                <p class="estilo-desc">Textura de fieltro, ojos expresivos y ese encanto de marioneta artesanal que derrite los corazones más escépticos.</p>
+            </div>
+        </div>
+        <div class="estilo-card fade-in">
+            <img src="assets/catalogo/caricaturas/estilo_vectorial.webp" alt="Caricatura estilo Vectorial">
+            <div class="estilo-info">
+                <div class="estilo-name">Vectorial</div>
+                <p class="estilo-desc">Geometría elegante, paleta limpia y un aire contemporáneo que encaja con cualquier decoración y luce tanto en digital como impreso.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════ FORMATOS ═══════ -->
+    <div class="formatos-section">
+        <div class="formatos-header fade-in">
+            <div class="section-label">Elige tu formato</div>
+            <h2 class="section-title-alt">Tres maneras de colgar un recuerdo</h2>
+        </div>
+
+        <!-- Formato 1: Muñecos -->
+        <div class="formato-block fade-in">
+            <div class="formato-inner">
+                <div class="formato-text">
+                    <div class="formato-num">Formato 01</div>
+                    <div class="formato-name">Muñeco con base</div>
+                    <p class="formato-desc">Tu caricatura recortada al perfil e impresa en alta calidad sobre contrachapado, con una base de madera integrada para colocarla en cualquier superficie.</p>
+                    <ul class="formato-details">
+                        <li>Figura recortada con contorno de tu caricatura</li>
+                        <li>Base de madera integrada para sobremesa</li>
+                        <li>Impresión en alta calidad brillo o mate</li>
+                        <li>Perfecto para escritorios, estanterías y vitrinas</li>
+                        <li>Varios tamaños disponibles</li>
+                    </ul>
+                </div>
+                <div class="formato-gallery">
+                    <img src="assets/catalogo/caricaturas/formato_muneco_1.webp" alt="Muñeco caricatura de pareja sobre base de madera">
+                    <img src="assets/catalogo/caricaturas/formato_muneco_2.webp" alt="Muñeco caricatura detalle base madera">
+                </div>
+            </div>
+        </div>
+
+        <!-- Formato 2: Cuadro tridimensional -->
+        <div class="formato-block fade-in">
+            <div class="formato-inner reverse">
+                <div class="formato-text">
+                    <div class="formato-num">Formato 02</div>
+                    <div class="formato-name">Cuadro tridimensional</div>
+                    <p class="formato-desc">Una pieza con auténtica profundidad: dos capas superpuestas dentro de un elegante marco de pino. La escena de fondo como base y los personajes en primer plano generan un impactante efecto 3D real.</p>
+                    <ul class="formato-details">
+                        <li>Dos capas de profundidad: fondo + personajes al frente</li>
+                        <li>Marco de madera de pino, teñido o pintado a elección</li>
+                        <li>Efecto 3D real que da vida a la escena</li>
+                        <li>Perfecto para pared o apoyado en una repisa</li>
+                        <li>Varios tamaños disponibles</li>
+                    </ul>
+                </div>
+                <div class="formato-gallery">
+                    <img src="assets/catalogo/caricaturas/formato_3d_1.webp" alt="Cuadro tridimensional caricatura con marco de pino">
+                    <img src="assets/catalogo/caricaturas/formato_3d_2.webp" alt="Cuadro tridimensional caricatura detalle profundidad">
+                </div>
+            </div>
+        </div>
+
+        <!-- Formato 3: Cuadro de luz -->
+        <div class="formato-block fade-in">
+            <div class="formato-inner">
+                <div class="formato-text">
+                    <div class="formato-num">Formato 03</div>
+                    <div class="formato-name">Cuadro de luz</div>
+                    <p class="formato-desc">Tu caricatura retroiluminada con LED para un efecto visual deslumbrante. Ideal como luz ambiental o pieza decorativa protagonista tanto de día como de noche.</p>
+                    <ul class="formato-details">
+                        <li>Iluminación LED integrada que realza los colores</li>
+                        <li>Marco de madera de pino, teñido o pintado a elección</li>
+                        <li>Impactante tanto de día como de noche</li>
+                        <li>Ideal como regalo de bodas, aniversarios y cumpleaños</li>
+                        <li>Luz cálida o fría según el ambiente</li>
+                    </ul>
+                </div>
+                <div class="formato-gallery">
+                    <img src="assets/catalogo/caricaturas/formato_luz_1.webp" alt="Cuadro de luz caricatura iluminado">
+                    <img src="assets/catalogo/caricaturas/formato_luz_2.webp" alt="Cuadro de luz caricatura en oscuridad">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ PROCESO ═══════ -->
+    <div class="proceso-section fade-in">
+        <div class="section-label">Así de fácil</div>
+        <h2 class="section-title-alt">Tu encargo en cuatro pasos</h2>
+
+        <div class="proceso-steps">
+            <div class="paso">
+                <div class="paso-num">01</div>
+                <div class="paso-label">Foto</div>
+                <p class="paso-desc">Envíanos tu foto por WhatsApp</p>
+            </div>
+            <div class="paso">
+                <div class="paso-num">02</div>
+                <div class="paso-label">Estilo</div>
+                <p class="paso-desc">Elige el estilo y el formato</p>
+            </div>
+            <div class="paso">
+                <div class="paso-num">03</div>
+                <div class="paso-label">Revisión</div>
+                <p class="paso-desc">Te enviamos prueba de diseño</p>
+            </div>
+            <div class="paso">
+                <div class="paso-num">04</div>
+                <div class="paso-label">Listo</div>
+                <p class="paso-desc">Producción y entrega a tu puerta</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ CTA ═══════ -->
+    <div class="cta-final fade-in">
+        <p class="cta-quote">"Porque hay momentos que merecen algo más que una fotografía."</p>
+        <p class="cta-body">Cuéntanos tu idea, mándanos vuestra foto y nosotros hacemos el resto. En Artemichi cada encargo es único, y tú mereces una pieza que lo sea también.</p>
+        <a href="https://wa.me/34711240002" target="_blank" class="cta-btn-outline">Pedir mi caricatura · WhatsApp</a>
+        <p class="footnote">También disponible en artemichi.es · @artemichiregalos</p>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
+    </script>
+</body>
+</html>
