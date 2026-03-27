@@ -1,21 +1,7 @@
 [
+
   {
-    "id": 1,
-    "archivo": "assets/modelos/1.png",
-    "nombre": "Ejemplo: Lobo aullando",
-    "categoria": "animales",
-    "tags": [
-      "lobo",
-      "animal",
-      "naturaleza",
-      "bosque",
-      "silueta"
-    ],
-    "estilo": "minimalista",
-    "ambiente": "misterioso"
-  },
-  {
-    "nombre": "Banda de rock en acción",
+    "nombre": "AC/DC",
     "tags": [
       "AC/DC",
       "música",
@@ -74,8 +60,9 @@
       "personajes coloridos",
       "diversión",
       "amigos",
-      "diseño infantil",
-      "ilustración alegre"
+      "BTS",
+      "ilustración alegre",
+      "K-POP"
     ],
     "estilo": "organico",
     "ambiente": "infantil",
