@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi AURA - Tu retrato personalizado bañado en los colores de tu energía. 6 auras en metacrilato con LED: Blanca, Azul, Roja, Fuego, Cósmica, Verde.">
+    <title>AURA · Retratos de Energía | Artemichi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .aura-hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 9rem 2rem 5rem; position: relative; overflow: hidden; background: #03020a;
+        }
+        .aura-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 700px 500px at 20% 40%, rgba(150,0,255,0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 400px at 80% 25%, rgba(0,80,255,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 400px at 50% 80%, rgba(220,50,0,0.07) 0%, transparent 70%);
+            animation: auraPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes auraPulse { from { opacity:0.6; transform:scale(1); } to { opacity:1; transform:scale(1.04); } }
+        .aura-title {
+            font-family: 'Cinzel', serif; font-size: clamp(5rem,15vw,10rem); font-weight: 400;
+            letter-spacing: 0.3em; line-height: 1;
+            background: linear-gradient(135deg, #c0c0ff, #8080ff, #ff4080, #ff8000, #80ff80, #8080ff);
+            background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; animation: auraGrad 6s ease infinite; position: relative; z-index: 1;
+        }
+        @keyframes auraGrad { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        .aura-tagline { font-size:11px; font-weight:700; letter-spacing:5px; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-bottom:1rem; position:relative; z-index:1; }
+        .aura-hero-desc { font-size:1.1rem; font-weight:300; color:rgba(255,255,255,0.55); max-width:520px; line-height:1.7; margin:1.5rem auto 2.5rem; position:relative; z-index:1; }
+        .aura-hero-cta { display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(180,140,255,0.5); color:rgba(180,140,255,0.9); font-family:'Helvetica',sans-serif; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:0.9rem 2.2rem; border-radius:2px; text-decoration:none; transition:background 0.3s,color 0.3s; position:relative; z-index:1; }
+        .aura-hero-cta:hover { background:rgba(150,100,255,0.2); color:#fff; }
+        .gold-line { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--clr-gold),transparent); margin:0 auto 1.5rem; }
+        .section-label { font-size:10px; font-weight:700; letter-spacing:3px; color:var(--clr-gold); text-transform:uppercase; margin-bottom:0.8rem; }
+        .aura-section-title { font-family:'Cinzel',serif; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:400; color:var(--clr-text); margin-bottom:1rem; }
+        .aura-section-body { font-size:0.95rem; font-weight:300; color:var(--clr-text-muted); line-height:1.8; }
+        .divider { border:none; border-top:1px solid rgba(212,175,55,0.08); margin:0; }
+        .concept-section { padding:4rem 2rem; max-width:800px; margin:0 auto; text-align:center; }
+        .auras-section { padding:2rem 2rem 4rem; max-width:1200px; margin:0 auto; }
+        .auras-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:1.5rem; margin-top:2.5rem; }
+        .aura-card { border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); transition:transform 0.35s ease,box-shadow 0.35s ease; cursor:default; }
+        .aura-card:hover { transform:translateY(-6px); }
+        .aura-card-header { height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+        .aura-card-header img { width:100%; height:100%; object-fit:cover; display:block; }
+        .aura-emoji { font-size:4rem; filter:drop-shadow(0 0 20px rgba(255,255,255,0.5)); position:absolute; }
+        .aura-card-body { padding:1.5rem; border-top:1px solid rgba(255,255,255,0.05); }
+        .aura-card-name { font-family:'Cinzel',serif; font-size:1.3rem; font-weight:600; margin-bottom:0.3rem; letter-spacing:2px; }
+        .aura-card-energy { font-size:0.75rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; opacity:0.55; margin-bottom:0.7rem; }
+        .aura-card-desc { font-size:0.86rem; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.65; }
+        .aura-blanca .aura-card-header { background:linear-gradient(135deg,#e8e8f8,#b0b0d0,#f5f5ff); }
+        .aura-blanca:hover { box-shadow:0 20px 50px rgba(200,200,255,0.2); border-color:rgba(200,200,255,0.4); }
+        .aura-blanca .aura-card-name,.aura-blanca .aura-card-energy { color:#c8c8f0; }
+        .aura-blanca .aura-card-body { background:rgba(160,160,220,0.06); }
+        .aura-azul .aura-card-header { background:linear-gradient(135deg,#000830,#0040b0,#0090e0,#00c0ff); }
+        .aura-azul:hover { box-shadow:0 20px 50px rgba(0,100,255,0.25); border-color:rgba(0,120,255,0.45); }
+        .aura-azul .aura-card-name,.aura-azul .aura-card-energy { color:#60b0ff; }
+        .aura-azul .aura-card-body { background:rgba(0,50,150,0.1); }
+        .aura-roja .aura-card-header { background:linear-gradient(135deg,#280010,#a00030,#ff2050); }
+        .aura-roja:hover { box-shadow:0 20px 50px rgba(200,0,50,0.25); border-color:rgba(220,0,50,0.45); }
+        .aura-roja .aura-card-name,.aura-roja .aura-card-energy { color:#ff6080; }
+        .aura-roja .aura-card-body { background:rgba(140,0,40,0.1); }
+        .aura-fuego .aura-card-header { background:linear-gradient(135deg,#180200,#aa3800,#ff7000,#ffcc00); }
+        .aura-fuego:hover { box-shadow:0 20px 50px rgba(255,100,0,0.25); border-color:rgba(255,120,0,0.45); }
+        .aura-fuego .aura-card-name,.aura-fuego .aura-card-energy { color:#ffa040; }
+        .aura-fuego .aura-card-body { background:rgba(140,50,0,0.1); }
+        .aura-cosmica .aura-card-header { background:#000; }
+        .aura-cosmica:hover { box-shadow:0 20px 50px rgba(140,0,255,0.3); border-color:rgba(160,0,255,0.5); }
+        .aura-cosmica .aura-card-name,.aura-cosmica .aura-card-energy { color:#c080ff; }
+        .aura-cosmica .aura-card-body { background:rgba(70,0,140,0.1); }
+        .aura-verde .aura-card-header { background:linear-gradient(135deg,#000f05,#005030,#00a050,#00ff80); }
+        .aura-verde:hover { box-shadow:0 20px 50px rgba(0,160,80,0.25); border-color:rgba(0,180,80,0.45); }
+        .aura-verde .aura-card-name,.aura-verde .aura-card-energy { color:#50d090; }
+        .aura-verde .aura-card-body { background:rgba(0,70,35,0.1); }
+        .product-info { background:#060508; border-top:1px solid rgba(212,175,55,0.08); border-bottom:1px solid rgba(212,175,55,0.08); padding:4rem 2rem; }
+        .product-info-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+        @media(max-width:680px){.product-info-inner{grid-template-columns:1fr;}}
+        .sizes-table { width:100%; border-collapse:collapse; margin-top:1.2rem; font-size:0.88rem; }
+        .sizes-table th { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; color:var(--clr-gold); text-transform:uppercase; text-align:left; padding:0.5rem 1rem; border-bottom:1px solid rgba(212,175,55,0.2); }
+        .sizes-table td { padding:0.55rem 1rem; color:var(--clr-text-muted); border-bottom:1px solid rgba(255,255,255,0.04); }
+        .sizes-table tr:last-child td { border-bottom:none; }
+        .process-bg { background:#060508; border-top:1px solid rgba(212,175,55,0.08); border-bottom:1px solid rgba(212,175,55,0.08); padding:4rem 2rem; text-align:center; }
+        .process-steps { display:flex; flex-wrap:wrap; justify-content:center; gap:0; margin:2.5rem auto 0; max-width:680px; }
+        .paso { flex:1; min-width:150px; padding:1.5rem 1rem; position:relative; }
+        .paso:not(:last-child)::after { content:'›'; position:absolute; right:-4px; top:50%; transform:translateY(-50%); color:var(--clr-gold); font-size:1.2rem; }
+        .paso-num { font-family:'Cinzel',serif; font-size:2rem; font-weight:400; color:rgba(212,175,55,0.15); line-height:1; margin-bottom:0.6rem; }
+        .paso-label { font-size:11px; font-weight:700; letter-spacing:1.5px; color:var(--clr-gold); text-transform:uppercase; margin-bottom:0.4rem; }
+        .paso-desc { font-size:0.8rem; font-weight:300; color:var(--clr-text-muted); line-height:1.5; }
+        .ba-section { padding:3rem 2rem 4rem; max-width:900px; margin:0 auto; text-align:center; }
+        .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:780px; margin:2rem auto 0; }
+        @media(max-width:600px){.ba-grid{grid-template-columns:1fr;} .process-steps{flex-direction:column;} .paso:not(:last-child)::after{display:none;}}
+        .cta-final { padding:4rem 2rem; text-align:center; max-width:600px; margin:0 auto; }
+        .cta-quote { font-family:'Cinzel',serif; font-style:italic; font-size:1.5rem; color:var(--clr-gold); line-height:1.5; margin-bottom:1.5rem; }
+        .cta-body { font-size:0.95rem; font-weight:300; color:var(--clr-text-muted); line-height:1.8; margin-bottom:2rem; }
+        .cta-btn { display:inline-flex; align-items:center; gap:10px; background:transparent; border:1px solid var(--clr-gold); color:var(--clr-gold); font-family:'Helvetica',sans-serif; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:0.9rem 2.2rem; cursor:pointer; transition:background 0.25s,color 0.25s,box-shadow 0.25s; text-decoration:none; border-radius:2px; }
+        .cta-btn:hover { background:var(--clr-gold); color:#0d0d0d; box-shadow:var(--glow); }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background:rgba(3,2,10,0.95); backdrop-filter:blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border:1px solid var(--clr-gold);padding:5px 15px;border-radius:20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <header class="aura-hero fade-in">
+        <div class="aura-tagline">Artemichi · Colección Exclusiva</div>
+        <h1 class="aura-title">AURA</h1>
+        <p class="aura-hero-desc">Tu energía personal, traducida en colores y plasmada en un cuadro de metacrilato único. Elige tu aura. Recibe tu obra.</p>
+        <a href="#auras" class="aura-hero-cta">Explorar las 6 Auras ↓</a>
+    </header>
+
+    <section class="concept-section fade-in">
+        <div class="gold-line"></div>
+        <div class="section-label">¿Qué es una AURA Artemichi?</div>
+        <h2 class="aura-section-title">Tu retrato. Tu energía. Tu paleta.</h2>
+        <p class="aura-section-body">Cada persona irradia una energía única. La colección AURA convierte esa energía en arte: a partir de tu fotografía, creamos un retrato artístico rodeado por los colores que representan tu esencia, impreso en metacrilato cristalino sobre bastidor de madera. Un regalo que no se olvida.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="auras" class="auras-section fade-in">
+        <div style="text-align:center;">
+            <div class="section-label">Elige la tuya</div>
+            <h2 class="aura-section-title">Las seis energías</h2>
+            <p class="aura-section-body" style="max-width:560px;margin:0 auto;">Cada aura tiene su propio universo visual. ¿Cuál te define?</p>
+        </div>
+        <div class="auras-grid">
+            <div class="aura-card aura-blanca fade-in">
+                <div class="aura-card-header"><span class="aura-emoji">✦</span></div>
+                <div class="aura-card-body">
+                    <div class="aura-card-name">Blanca</div>
+                    <div class="aura-card-energy">Pureza · Claridad · Paz</div>
+                    <p class="aura-card-desc">Plata, blanco y destellos luminosos. El aura de quienes irradian calma, claridad mental y una elegancia natural que atrae las miradas.</p>
+                </div>
+            </div>
+            <div class="aura-card aura-azul fade-in">
+                <div class="aura-card-header"><img src="assets/catalogo/aura/aura_azul.png" alt="Aura Azul - energía de agua y cielo"></div>
+                <div class="aura-card-body">
+                    <div class="aura-card-name">Azul</div>
+                    <div class="aura-card-energy">Calma · Intuición · Profundidad</div>
+                    <p class="aura-card-desc">Azul oceánico, turquesa y eléctrico. El aura de las mentes creativas, los soñadores y las personas con una intuición fuera de lo común.</p>
+                </div>
+            </div>
+            <div class="aura-card aura-roja fade-in">
+                <div class="aura-card-header"><span class="aura-emoji">♥</span></div>
+                <div class="aura-card-body">
+                    <div class="aura-card-name">Roja</div>
+                    <div class="aura-card-energy">Pasión · Fuerza · Determinación</div>
+                    <p class="aura-card-desc">Carmesí, rojo intenso y borgoña. El aura de los líderes natos, los apasionados y quienes viven cada momento con una intensidad arrolladora.</p>
+                </div>
+            </div>
+            <div class="aura-card aura-fuego fade-in">
+                <div class="aura-card-header"><img src="assets/catalogo/aura/aura_fuego.png" alt="Aura Fuego - energía de llamas y vitalidad"></div>
+                <div class="aura-card-body">
+                    <div class="aura-card-name">Fuego</div>
+                    <div class="aura-card-energy">Energía · Entusiasmo · Vitalidad</div>
+                    <p class="aura-card-desc">Naranja, dorado y llamas vivas. El aura de los que llenan de energía cualquier habitación y convierten todo lo que tocan en algo especial.</p>
+                </div>
+            </div>
+            <div class="aura-card aura-cosmica fade-in">
+                <div class="aura-card-header"><img src="assets/catalogo/aura/aura_cosmica.png" alt="Aura Cósmica - galaxia y energía cósmica"></div>
+                <div class="aura-card-body">
+                    <div class="aura-card-name">Cósmica</div>
+                    <div class="aura-card-energy">Misterio · Espiritualidad · Conexión</div>
+                    <p class="aura-card-desc">Violeta, morado y galaxias en espiral. El aura de las almas viejas, los espíritus libres y quienes sienten una conexión profunda con el universo.</p>
+                </div>
+            </div>
+            <div class="aura-card aura-verde fade-in">
+                <div class="aura-card-header"><span class="aura-emoji">✿</span></div>
+                <div class="aura-card-body">
+                    <div class="aura-card-name">Verde</div>
+                    <div class="aura-card-energy">Salud · Crecimiento · Armonía</div>
+                    <p class="aura-card-desc">Esmeralda, verde naturaleza y destellos de vida. El aura de quienes cuidan de todos, tienen un corazón compasivo y viven en sintonía con la naturaleza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="product-info">
+        <div class="product-info-inner">
+            <div class="fade-in">
+                <div class="section-label">Soporte · Metacrilato</div>
+                <h3 class="aura-section-title" style="font-size:1.4rem;">Cuadro de Metacrilato</h3>
+                <p class="aura-section-body">Impresión en alta resolución sobre metacrilato cristalino, montado sobre bastidor de madera. Los colores del AURA brillan con una viveza excepcional.</p>
+                <table class="sizes-table">
+                    <thead><tr><th>Tamaño</th><th>Formato</th></tr></thead>
+                    <tbody>
+                        <tr><td>20 × 30 cm</td><td>Retrato compacto</td></tr>
+                        <tr><td>30 × 40 cm</td><td>Retrato estándar</td></tr>
+                        <tr><td>40 × 60 cm</td><td>Retrato gran formato</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="fade-in">
+                <div class="section-label">Iluminación opcional</div>
+                <h3 class="aura-section-title" style="font-size:1.4rem;">Luz que amplifica tu aura</h3>
+                <p class="aura-section-body">Todos los cuadros AURA pueden equiparse con LED integrado. USB Tipo-C o pilas AA.</p>
+                <table class="sizes-table">
+                    <thead><tr><th>Tipo de LED</th><th>Control</th></tr></thead>
+                    <tbody>
+                        <tr><td>🌈 RGB Neon</td><td>Mando a distancia</td></tr>
+                        <tr><td>○ Blanca</td><td>Interruptor</td></tr>
+                        <tr><td>◑ Cálida</td><td>Interruptor</td></tr>
+                        <tr><td>✦ Sin luz</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="ba-section fade-in">
+        <div class="section-label" style="text-align:center;">Del original a la obra</div>
+        <h2 class="aura-section-title" style="text-align:center;">Tu foto, transformada</h2>
+        <p class="aura-section-body" style="text-align:center;max-width:560px;margin:0 auto;">Envíanos tu fotografía y nosotros creamos tu AURA. El resultado es un cuadro único e irrepetible.</p>
+        <div class="ba-grid">
+            <div style="position:relative;">
+                <img src="assets/catalogo/aura/antes_ejemplo.jpg" alt="Foto original del cliente para AURA" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06);display:block;aspect-ratio:3/4;object-fit:cover;">
+                <div style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.8);color:rgba(255,255,255,0.5);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;backdrop-filter:blur(6px);">TU FOTO · ANTES</div>
+            </div>
+            <div style="position:relative;">
+                <img src="assets/catalogo/metacrilato/producto_led_morado.jpg" alt="Cuadro AURA Cósmica en metacrilato con LED morado" style="width:100%;border-radius:8px;border:1px solid rgba(150,0,255,0.4);box-shadow:0 0 40px rgba(150,0,255,0.2);display:block;aspect-ratio:3/4;object-fit:cover;">
+                <div style="position:absolute;top:12px;left:12px;background:rgba(150,0,255,0.85);color:#fff;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;">AURA CÓSMICA · DESPUÉS</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-bg fade-in">
+        <div class="section-label">Así de fácil</div>
+        <h2 class="aura-section-title">Tu AURA en cuatro pasos</h2>
+        <div class="process-steps">
+            <div class="paso"><div class="paso-num">01</div><div class="paso-label">Foto</div><p class="paso-desc">Envíanos tu foto por WhatsApp</p></div>
+            <div class="paso"><div class="paso-num">02</div><div class="paso-label">Aura</div><p class="paso-desc">Elige tu color o cuéntanos tu personalidad</p></div>
+            <div class="paso"><div class="paso-num">03</div><div class="paso-label">Prueba</div><p class="paso-desc">Te enviamos el diseño para aprobar</p></div>
+            <div class="paso"><div class="paso-num">04</div><div class="paso-label">A casa</div><p class="paso-desc">Producción y entrega a tu puerta</p></div>
+        </div>
+    </section>
+
+    <div class="cta-final fade-in">
+        <p class="cta-quote">"Porque tu energía merece ser visible."</p>
+        <p class="cta-body">Cuéntanos qué aura sientes que te representa, mándanos tu foto y nosotros creamos la obra. En Artemichi cada AURA es única, y la tuya también lo será.</p>
+        <a href="https://wa.me/34711240002" target="_blank" class="cta-btn">Pedir mi AURA · WhatsApp</a>
+        <div class="social-links mt-4">
+            <a href="https://www.instagram.com/artemichiregalos" target="_blank" rel="noopener" class="social-btn">@artemichiregalos en Instagram</a>
+            <a href="https://www.facebook.com/artemichiregalos" target="_blank" rel="noopener" class="social-btn">@artemichiregalos en Facebook</a>
+        </div>
+    </div>
+
+    <footer><div class="container text-center"><p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p></div></footer>
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const obs = new IntersectionObserver((e,o)=>e.forEach(x=>{if(!x.isIntersecting)return;x.target.classList.add('visible');o.unobserve(x.target);}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+        faders.forEach(f=>obs.observe(f));
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(()=>document.querySelector('.aura-hero').classList.add('visible'),100);
+    </script>
+</body>
+</html>

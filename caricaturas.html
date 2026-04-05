@@ -386,6 +386,51 @@
             margin-top: 1.5rem;
             text-transform: uppercase;
         }
+        /* ═══════════ LED SECTION ═══════════ */
+        .led-section {
+            padding: 0 2rem 3.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .led-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .led-card {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(212,175,55,0.12);
+            border-radius: 10px;
+            padding: 1.8rem 1.5rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .led-card:hover {
+            border-color: rgba(212,175,55,0.4);
+            box-shadow: var(--glow);
+        }
+        .led-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+        .led-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--clr-gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .led-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+        }
+        .led-power {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(212,175,55,0.08);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+        }
     </style>
 </head>
 <body>
@@ -493,7 +538,7 @@
     <div class="formatos-section">
         <div class="formatos-header fade-in">
             <div class="section-label">Elige tu formato</div>
-            <h2 class="section-title-alt">Tres maneras de colgar un recuerdo</h2>
+            <h2 class="section-title-alt">Cuatro formatos únicos</h2>
         </div>
 
         <!-- Formato 1: Muñecos -->
@@ -559,6 +604,81 @@
                     <img src="assets/catalogo/caricaturas/formato_luz_1.webp" alt="Cuadro de luz caricatura iluminado">
                     <img src="assets/catalogo/caricaturas/formato_luz_2.webp" alt="Cuadro de luz caricatura en oscuridad">
                 </div>
+            </div>
+        </div>
+
+        <!-- Formato 4: Cuadro de Metacrilato · Nuevo -->
+        <div class="formato-block fade-in" style="border-color:rgba(212,175,55,0.3); box-shadow:0 0 40px rgba(212,175,55,0.05);">
+            <div class="formato-inner">
+                <div class="formato-text">
+                    <div class="formato-num">Formato 04 &nbsp;<span style="background:var(--clr-gold);color:#0a0908;font-size:8px;letter-spacing:1.5px;padding:2px 8px;border-radius:10px;vertical-align:middle;">NUEVO</span></div>
+                    <div class="formato-name">Cuadro de Metacrilato</div>
+                    <p class="formato-desc">Tu caricatura impresa en alta resolución sobre metacrilato cristalino, montada sobre bastidor de madera. El metacrilato amplifica la viveza y profundidad cromática como ningún otro soporte. Disponible con iluminación LED integrada a elección.</p>
+                    <ul class="formato-details">
+                        <li>Impresión en metacrilato cristalino de alta calidad</li>
+                        <li>Bastidor de madera de calidad premium</li>
+                        <li>Colores más brillantes y profundos que sobre papel</li>
+                        <li>LED RGB (mando), blanca o cálida (interruptor) opcionales</li>
+                        <li>Alimentación USB Tipo-C o pilas AA</li>
+                        <li>Tamaños: 20×30 · 30×40 · 40×60 cm</li>
+                    </ul>
+                </div>
+                <div class="formato-gallery single">
+                    <img src="assets/catalogo/metacrilato/producto_led_morado.jpg" alt="Cuadro de metacrilato con iluminación LED morada encendida - efecto final">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ LED OPTIONS ═══════ -->
+    <div class="led-section fade-in">
+        <div class="formatos-header">
+            <div class="section-label">Solo para cuadros de metacrilato</div>
+            <h2 class="section-title-alt">Elige tu iluminación</h2>
+            <p class="section-body" style="text-align:center; margin:0 auto;">Los cuadros de metacrilato pueden equiparse con iluminación LED integrada. Alimentación USB Tipo-C o 4 pilas AA.</p>
+        </div>
+        <div class="led-grid">
+            <div class="led-card">
+                <span class="led-icon">🌈</span>
+                <div class="led-name">RGB Neon</div>
+                <p class="led-desc">16 millones de colores y múltiples modos dinámicos. Transforma el ambiente con el mando a distancia incluido.</p>
+                <p class="led-power">Control: Mando a distancia · USB / Pilas AA</p>
+            </div>
+            <div class="led-card">
+                <span class="led-icon">○</span>
+                <div class="led-name">Blanca</div>
+                <p class="led-desc">Luz blanca nítida que realza cada detalle sin alterar los colores originales de la impresión.</p>
+                <p class="led-power">Control: Interruptor · USB / Pilas AA</p>
+            </div>
+            <div class="led-card">
+                <span class="led-icon">◑</span>
+                <div class="led-name">Cálida</div>
+                <p class="led-desc">Tono dorado y acogedor. Ideal para crear ambientes íntimos en dormitorios y salones.</p>
+                <p class="led-power">Control: Interruptor · USB / Pilas AA</p>
+            </div>
+            <div class="led-card">
+                <span class="led-icon">✦</span>
+                <div class="led-name">Sin Luz</div>
+                <p class="led-desc">El metacrilato ya aporta brillo y profundidad excepcionales. La opción limpia y elegante.</p>
+                <p class="led-power">Sin alimentación necesaria</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ ANTES / DESPUÉS ═══════ -->
+    <hr class="divider">
+    <div class="content-section fade-in" style="max-width:900px; text-align:center;">
+        <div class="section-label">Del original al cuadro definitivo</div>
+        <h2 class="section-title-alt">Antes y después</h2>
+        <p class="section-body" style="margin:0 auto 2rem; text-align:center;">La misma persona. Dos mundos completamente distintos. Así convierte el metacrilato y la iluminación LED tu foto en un objeto de colección.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:780px; margin:0 auto;">
+            <div style="position:relative;">
+                <img src="assets/catalogo/caricaturas/metacrilato_antes.webp" alt="Foto original del cliente - antes" style="width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.06); display:block; aspect-ratio:3/4; object-fit:cover;">
+                <div style="position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.8); color:rgba(255,255,255,0.5); font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:20px; backdrop-filter:blur(6px);">FOTO · ANTES</div>
+            </div>
+            <div style="position:relative;">
+                <img src="assets/catalogo/metacrilato/producto_led_morado.jpg" alt="Cuadro de metacrilato con LED encendido - después" style="width:100%; border-radius:8px; border:1px solid rgba(212,175,55,0.4); box-shadow:0 0 30px rgba(212,175,55,0.1); display:block; aspect-ratio:3/4; object-fit:cover;">
+                <div style="position:absolute; top:12px; left:12px; background:var(--clr-gold); color:#0a0908; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:20px;">CUADRO · DESPUÉS</div>
             </div>
         </div>
     </div>

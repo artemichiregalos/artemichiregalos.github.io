@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "nombre":  "AC/DC",
         "tags":  [
@@ -52099,5 +52099,150 @@
         "ambiente":  "elegante",
         "categoria":  "shadowbox",
         "archivo":  "assets/modelos/SHADOWBOX/inicial_nombre.webp"
+    },
+    {
+        "nombre": "Attack on Titan - EPIC",
+        "tags": ["attack on titan", "shingeki no kyojin", "anime", "soldado", "titan", "espadas", "maniobra", "eren", "levi", "acción", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "guerrero", "led", "iluminación led", "retrato épico", "regalo personalizado"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1699,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/attack_on_titan.png"
+    },
+    {
+        "nombre": "Superman - EPIC",
+        "tags": ["superman", "superhéroe", "dc comics", "hombre de acero", "capa", "kryptonita", "clark kent", "vuelo", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "led", "iluminación led", "retrato épico", "regalo personalizado", "comic", "superhéroes"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1700,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/superman.png"
+    },
+    {
+        "nombre": "Spiderman - EPIC",
+        "tags": ["spiderman", "spider-man", "peter parker", "telara", "superhéroe", "marvel", "traje rojo", "new york", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "led", "iluminación led", "retrato épico", "regalo personalizado", "comic", "superhéroes"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1701,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/spiderman.jpg"
+    },
+    {
+        "nombre": "Dragon Ball - EPIC",
+        "tags": ["dragon ball", "goku", "super saiyajin", "ki", "anime", "bola de dragón", "energía", "guerrero", "cabello dorado", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "led", "iluminación led", "retrato épico", "regalo personalizado", "manga"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1702,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/dragon_ball.png"
+    },
+    {
+        "nombre": "Dioses - EPIC",
+        "tags": ["dios", "diosa", "celestial", "divino", "mitología", "poder divino", "luz dorada", "olímpico", "thor", "zeus", "atenea", "metacrilato", "cuadro personalizado", "regalo", "cultura pop", "épico", "led", "iluminación led", "retrato épico", "regalo personalizado"],
+        "estilo": "épico",
+        "ambiente": "elegante",
+        "id": 1703,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/diosa.png"
+    },
+    {
+        "nombre": "Villanos - EPIC",
+        "tags": ["villano", "villana", "antagonista", "lado oscuro", "maléfica", "joker", "thanos", "oscuro", "poder", "caos", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "led", "iluminación led", "retrato épico", "regalo personalizado", "comic", "superhéroes"],
+        "estilo": "épico",
+        "ambiente": "misterioso",
+        "id": 1704,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/villano.png"
+    },
+    {
+        "nombre": "One Piece - EPIC",
+        "tags": ["one piece", "luffy", "sombrero de paja", "pirata", "anime", "rey de los piratas", "aventura", "mar", "manga", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "led", "iluminación led", "retrato épico", "regalo personalizado"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1705,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/one_piece.png"
+    },
+    {
+        "nombre": "Batman - EPIC",
+        "tags": ["batman", "bruce wayne", "gotham", "caballero oscuro", "dc comics", "superhéroe", "capa negra", "batman", "nocturno", "vigilante", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "led", "iluminación led", "retrato épico", "regalo personalizado", "comic"],
+        "estilo": "épico",
+        "ambiente": "misterioso",
+        "id": 1706,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/batman.png"
+    },
+    {
+        "nombre": "Cyberpunk - EPIC",
+        "tags": ["cyberpunk", "ciberpunk", "night city", "futurista", "neón", "implantes", "tecnología", "distópico", "ciencia ficción", "mercenario", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "led", "iluminación led", "retrato épico", "regalo personalizado", "neon"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1707,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/ciberpunk.png"
+    },
+    {
+        "nombre": "Wonder Woman - EPIC",
+        "tags": ["wonder woman", "diana", "amazona", "dc comics", "superheroína", "lazo de la verdad", "guerrera", "armadura", "mujer maravilla", "metacrilato", "cuadro personalizado", "regalo friki", "cultura pop", "héroe", "led", "iluminación led", "retrato épico", "regalo personalizado", "comic"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1708,
+        "categoria": "epic",
+        "archivo": "assets/catalogo/epic/wonder_woman.png"
+    },
+    {
+        "nombre": "AURA Blanca - Retrato de energía",
+        "tags": ["aura", "aura blanca", "pureza", "claridad", "paz", "energía", "espiritual", "luz blanca", "plata", "metacrilato", "cuadro personalizado", "retrato", "regalo", "led", "iluminación led", "personalizado", "colores", "energía blanca", "calma"],
+        "estilo": "épico",
+        "ambiente": "elegante",
+        "id": 1709,
+        "categoria": "aura",
+        "archivo": "assets/catalogo/metacrilato/producto_led_morado.jpg"
+    },
+    {
+        "nombre": "AURA Azul - Retrato de energía",
+        "tags": ["aura", "aura azul", "calma", "intuición", "profundidad", "energía", "espiritual", "turquesa", "océano", "metacrilato", "cuadro personalizado", "retrato", "regalo", "led", "iluminación led", "personalizado", "colores", "energía azul", "creativo", "soñador"],
+        "estilo": "épico",
+        "ambiente": "elegante",
+        "id": 1710,
+        "categoria": "aura",
+        "archivo": "assets/catalogo/aura/aura_azul.png"
+    },
+    {
+        "nombre": "AURA Roja - Retrato de energía",
+        "tags": ["aura", "aura roja", "pasión", "fuerza", "determinación", "energía", "espiritual", "carmesí", "borgoña", "metacrilato", "cuadro personalizado", "retrato", "regalo", "led", "iluminación led", "personalizado", "colores", "energía roja", "liderazgo", "intensidad"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1711,
+        "categoria": "aura",
+        "archivo": "assets/catalogo/metacrilato/producto_led_morado.jpg"
+    },
+    {
+        "nombre": "AURA Fuego - Retrato de energía",
+        "tags": ["aura", "aura fuego", "energía", "entusiasmo", "vitalidad", "espiritual", "naranja", "dorado", "llamas", "metacrilato", "cuadro personalizado", "retrato", "regalo", "led", "iluminación led", "personalizado", "colores", "fuego", "carisma", "alegría"],
+        "estilo": "épico",
+        "ambiente": "épico",
+        "id": 1712,
+        "categoria": "aura",
+        "archivo": "assets/catalogo/aura/aura_fuego.png"
+    },
+    {
+        "nombre": "AURA Cósmica - Retrato de energía",
+        "tags": ["aura", "aura cósmica", "misterio", "espiritualidad", "conexión", "universo", "galaxia", "violeta", "morado", "metacrilato", "cuadro personalizado", "retrato", "regalo", "led", "iluminación led", "personalizado", "colores", "cósmico", "alma", "espíritu"],
+        "estilo": "épico",
+        "ambiente": "misterioso",
+        "id": 1713,
+        "categoria": "aura",
+        "archivo": "assets/catalogo/aura/aura_cosmica.png"
+    },
+    {
+        "nombre": "AURA Verde - Retrato de energía",
+        "tags": ["aura", "aura verde", "salud", "crecimiento", "armonía", "energía", "espiritual", "esmeralda", "naturaleza", "metacrilato", "cuadro personalizado", "retrato", "regalo", "led", "iluminación led", "personalizado", "colores", "verde", "compasión", "equilibrio"],
+        "estilo": "épico",
+        "ambiente": "elegante",
+        "id": 1714,
+        "categoria": "aura",
+        "archivo": "assets/catalogo/metacrilato/producto_led_morado.jpg"
     }
 ]
+

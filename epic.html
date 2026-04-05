@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artemichi EPIC - Conviértete en el héroe de tu universo favorito. Attack on Titan, Superman, Spiderman, Dragon Ball, Batman y más. Cuadros de metacrilato con LED.">
+    <title>EPIC · Conviértete en Leyenda | Artemichi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .epic-hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 9rem 2rem 5rem; position: relative; overflow: hidden; background: #050205;
+        }
+        .epic-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 700px 500px at 15% 50%, rgba(255,30,30,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse 600px 400px at 85% 30%, rgba(0,60,200,0.1) 0%, transparent 65%),
+                radial-gradient(ellipse 500px 300px at 50% 90%, rgba(255,120,0,0.08) 0%, transparent 60%);
+            animation: epicPulse 7s ease-in-out infinite alternate;
+        }
+        @keyframes epicPulse { from{opacity:0.6;transform:scale(1);}to{opacity:1;transform:scale(1.04);} }
+        .epic-title {
+            font-family: 'Cinzel', serif; font-size: clamp(4rem,13vw,9rem); font-weight: 700;
+            letter-spacing: 0.2em; line-height: 1;
+            background: linear-gradient(135deg, #ff3030, #ff8000, #ffe000, #ff3030);
+            background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; animation: epicGrad 4s ease infinite; position: relative; z-index: 1;
+            text-shadow: none;
+        }
+        @keyframes epicGrad { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+        .epic-tagline { font-size:11px; font-weight:700; letter-spacing:5px; color:rgba(255,180,0,0.5); text-transform:uppercase; margin-bottom:1rem; position:relative; z-index:1; }
+        .epic-hero-desc { font-size:1.1rem; font-weight:300; color:rgba(255,255,255,0.55); max-width:540px; line-height:1.7; margin:1.5rem auto 2.5rem; position:relative; z-index:1; }
+        .epic-hero-cta { display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(255,120,0,0.6); color:rgba(255,160,50,0.9); font-family:'Helvetica',sans-serif; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:0.9rem 2.2rem; border-radius:2px; text-decoration:none; transition:background 0.3s,color 0.3s; position:relative; z-index:1; }
+        .epic-hero-cta:hover { background:rgba(255,100,0,0.2); color:#fff; }
+        .gold-line { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--clr-gold),transparent); margin:0 auto 1.5rem; }
+        .section-label { font-size:10px; font-weight:700; letter-spacing:3px; color:var(--clr-gold); text-transform:uppercase; margin-bottom:0.8rem; }
+        .epic-section-title { font-family:'Cinzel',serif; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:400; color:var(--clr-text); margin-bottom:1rem; }
+        .epic-section-body { font-size:0.95rem; font-weight:300; color:var(--clr-text-muted); line-height:1.8; }
+        .divider { border:none; border-top:1px solid rgba(212,175,55,0.08); margin:0; }
+        .concept-section { padding:4rem 2rem; max-width:800px; margin:0 auto; text-align:center; }
+
+        /* EPIC THEMES GRID */
+        .universos-section { padding:2rem 2rem 4rem; max-width:1300px; margin:0 auto; }
+        .universos-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.2rem; margin-top:2.5rem; }
+        .universo-card { border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); transition:transform 0.35s,box-shadow 0.35s; cursor:default; position:relative; }
+        .universo-card:hover { transform:translateY(-6px); }
+        .universo-img { height:180px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+        .universo-img img { width:100%;height:100%;object-fit:cover;display:block; }
+        .universo-fallback { font-size:3.5rem; }
+        .universo-body { padding:1.2rem; border-top:1px solid rgba(255,255,255,0.05); }
+        .universo-name { font-family:'Cinzel',serif; font-size:1.1rem; font-weight:600; margin-bottom:0.3rem; letter-spacing:1.5px; }
+        .universo-tag { font-size:0.72rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; opacity:0.5; margin-bottom:0.5rem; }
+        .universo-desc { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.6; }
+
+        /* Individual universe colors */
+        .u-aot .universo-img { background:linear-gradient(135deg,#1a0a00,#5a2000,#8b3a0a,#c65a10); }
+        .u-aot:hover { box-shadow:0 20px 50px rgba(150,60,0,0.3); border-color:rgba(180,80,0,0.4); }
+        .u-aot .universo-name { color:#d4844a; } .u-aot .universo-tag { color:#d4844a; } .u-aot .universo-body { background:rgba(80,30,0,0.15); }
+
+        .u-superman .universo-img { background:linear-gradient(135deg,#00083a,#0020a0,#0040e0,#c00010); }
+        .u-superman:hover { box-shadow:0 20px 50px rgba(0,40,200,0.3); border-color:rgba(0,60,220,0.4); }
+        .u-superman .universo-name { color:#6090ff; } .u-superman .universo-tag { color:#6090ff; } .u-superman .universo-body { background:rgba(0,20,100,0.12); }
+
+        .u-spiderman .universo-img { background:linear-gradient(135deg,#1a0000,#8b0000,#cc0000,#00008b); }
+        .u-spiderman:hover { box-shadow:0 20px 50px rgba(180,0,0,0.3); border-color:rgba(200,0,0,0.4); }
+        .u-spiderman .universo-name { color:#ff5050; } .u-spiderman .universo-tag { color:#ff5050; } .u-spiderman .universo-body { background:rgba(100,0,0,0.12); }
+
+        .u-dragonball .universo-img { background:linear-gradient(135deg,#1a0800,#8a4000,#ffaa00,#fff200); }
+        .u-dragonball:hover { box-shadow:0 20px 50px rgba(255,150,0,0.3); border-color:rgba(255,160,0,0.4); }
+        .u-dragonball .universo-name { color:#ffcc40; } .u-dragonball .universo-tag { color:#ffcc40; } .u-dragonball .universo-body { background:rgba(120,70,0,0.12); }
+
+        .u-dioses .universo-img { background:linear-gradient(135deg,#0a0800,#4a3a00,#d4af37,#fff8dc); }
+        .u-dioses:hover { box-shadow:0 20px 50px rgba(212,175,55,0.3); border-color:rgba(212,175,55,0.45); }
+        .u-dioses .universo-name,.u-dioses .universo-tag { color:var(--clr-gold); } .u-dioses .universo-body { background:rgba(80,60,0,0.12); }
+
+        .u-villanos .universo-img { background:linear-gradient(135deg,#050010,#200040,#500080,#8000c0); }
+        .u-villanos:hover { box-shadow:0 20px 50px rgba(100,0,180,0.3); border-color:rgba(120,0,200,0.4); }
+        .u-villanos .universo-name { color:#c060ff; } .u-villanos .universo-tag { color:#c060ff; } .u-villanos .universo-body { background:rgba(60,0,100,0.12); }
+
+        .u-onepiece .universo-img { background:linear-gradient(135deg,#000820,#001880,#0040cc,#cc6600); }
+        .u-onepiece:hover { box-shadow:0 20px 50px rgba(0,60,180,0.3); border-color:rgba(0,80,200,0.4); }
+        .u-onepiece .universo-name { color:#50a0ff; } .u-onepiece .universo-tag { color:#cc8830; } .u-onepiece .universo-body { background:rgba(0,20,80,0.12); }
+
+        .u-batman .universo-img { background:linear-gradient(135deg,#020202,#0a0a12,#10101a,#1a1a30); }
+        .u-batman:hover { box-shadow:0 20px 50px rgba(30,30,100,0.4); border-color:rgba(60,60,150,0.4); }
+        .u-batman .universo-name { color:#8888cc; } .u-batman .universo-tag { color:#8888cc; } .u-batman .universo-body { background:rgba(20,20,50,0.2); }
+
+        .u-cyberpunk .universo-img { background:linear-gradient(135deg,#000515,#000a30,#001060,#00ffff22,#ff00ff11); }
+        .u-cyberpunk:hover { box-shadow:0 20px 50px rgba(0,255,255,0.2); border-color:rgba(0,200,255,0.4); }
+        .u-cyberpunk .universo-name { color:#00e5ff; } .u-cyberpunk .universo-tag { color:#cc00ff; } .u-cyberpunk .universo-body { background:rgba(0,20,60,0.15); }
+
+        .u-wonderwoman .universo-img { background:linear-gradient(135deg,#1a0005,#800010,#c8001a,#d4af37); }
+        .u-wonderwoman:hover { box-shadow:0 20px 50px rgba(200,0,30,0.3); border-color:rgba(212,175,55,0.35); }
+        .u-wonderwoman .universo-name { color:#ff4060; } .u-wonderwoman .universo-tag { color:var(--clr-gold); } .u-wonderwoman .universo-body { background:rgba(100,0,20,0.12); }
+
+        /* PRODUCT INFO */
+        .product-info { background:#060305; border-top:1px solid rgba(212,175,55,0.08); border-bottom:1px solid rgba(212,175,55,0.08); padding:4rem 2rem; }
+        .product-info-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+        @media(max-width:680px){.product-info-inner{grid-template-columns:1fr;}}
+        .sizes-table { width:100%; border-collapse:collapse; margin-top:1.2rem; }
+        .sizes-table th { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; color:var(--clr-gold); text-transform:uppercase; text-align:left; padding:0.5rem 1rem; border-bottom:1px solid rgba(212,175,55,0.2); }
+        .sizes-table td { padding:0.55rem 1rem; color:var(--clr-text-muted); border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.85rem; }
+        .sizes-table tr:last-child td { border-bottom:none; }
+
+        /* BEFORE/AFTER */
+        .ba-section { padding:3rem 2rem 4rem; max-width:900px; margin:0 auto; text-align:center; }
+        .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:780px; margin:2rem auto 0; }
+
+        /* PROCESS */
+        .process-bg { background:#060305; border-top:1px solid rgba(212,175,55,0.08); border-bottom:1px solid rgba(212,175,55,0.08); padding:4rem 2rem; text-align:center; }
+        .process-steps { display:flex; flex-wrap:wrap; justify-content:center; gap:0; margin:2.5rem auto 0; max-width:700px; }
+        .paso { flex:1; min-width:150px; padding:1.5rem 1rem; position:relative; }
+        .paso:not(:last-child)::after { content:'›'; position:absolute; right:-4px; top:50%; transform:translateY(-50%); color:var(--clr-gold); font-size:1.2rem; }
+        .paso-num { font-family:'Cinzel',serif; font-size:2rem; font-weight:400; color:rgba(255,100,0,0.2); line-height:1; margin-bottom:0.6rem; }
+        .paso-label { font-size:11px; font-weight:700; letter-spacing:1.5px; color:rgba(255,140,30,0.8); text-transform:uppercase; margin-bottom:0.4rem; }
+        .paso-desc { font-size:0.8rem; font-weight:300; color:var(--clr-text-muted); line-height:1.5; }
+
+        /* CTA */
+        .cta-final { padding:4rem 2rem; text-align:center; max-width:600px; margin:0 auto; }
+        .cta-quote { font-family:'Cinzel',serif; font-style:italic; font-size:1.5rem; color:rgba(255,140,30,0.9); line-height:1.5; margin-bottom:1.5rem; }
+        .cta-body { font-size:0.95rem; font-weight:300; color:var(--clr-text-muted); line-height:1.8; margin-bottom:2rem; }
+        .cta-btn { display:inline-flex; align-items:center; gap:10px; background:transparent; border:1px solid var(--clr-gold); color:var(--clr-gold); font-family:'Helvetica',sans-serif; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:0.9rem 2.2rem; cursor:pointer; transition:background 0.25s,color 0.25s,box-shadow 0.25s; text-decoration:none; border-radius:2px; }
+        .cta-btn:hover { background:var(--clr-gold); color:#0d0d0d; box-shadow:var(--glow); }
+        @media(max-width:600px){.ba-grid{grid-template-columns:1fr;}.process-steps{flex-direction:column;}.paso:not(:last-child)::after{display:none;}}
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background:rgba(5,2,5,0.95); backdrop-filter:blur(10px);">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.webp" alt="Artemichi Logo" class="logo-img">
+            <span class="logo-text"><span class="gold-text">ARTE</span>MICHI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#catalogo">Catálogo</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="gold-text" style="border:1px solid var(--clr-gold);padding:5px 15px;border-radius:20px;">Volver</a></li>
+        </ul>
+        <div class="mobile-menu-btn">&#9776;</div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="epic-hero fade-in">
+        <div class="epic-tagline">Artemichi · Colección Exclusiva</div>
+        <h1 class="epic-title">EPIC</h1>
+        <p class="epic-hero-desc">Conviértete en el protagonista de tu universo favorito. Tu foto, transformada en el personaje más épico que puedas imaginar, impreso en metacrilato con iluminación LED.</p>
+        <a href="#universos" class="epic-hero-cta">Ver los 10 Universos ↓</a>
+    </header>
+
+    <!-- CONCEPT -->
+    <section class="concept-section fade-in">
+        <div class="gold-line"></div>
+        <div class="section-label">¿Qué es la colección EPIC?</div>
+        <h2 class="epic-section-title">Tu historia de poder, escrita en arte.</h2>
+        <p class="epic-section-body">EPIC toma tu fotografía y te transporta al interior de los universos más icónicos de la cultura popular. Eres tú, pero convertido en héroe, villano o dios de tu mundo favorito, con todos los poderes y la estética que lo definen. Impreso en metacrilato cristalino con iluminación LED opcional.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 10 UNIVERSOS -->
+    <section id="universos" class="universos-section fade-in">
+        <div style="text-align:center;">
+            <div class="section-label">Elige tu universo</div>
+            <h2 class="epic-section-title">10 mundos. Tu historia.</h2>
+            <p class="epic-section-body" style="max-width:560px;margin:0 auto;">Cada universo tiene su propio arte, su paleta y su energía. ¿En cuál eres el protagonista?</p>
+        </div>
+        <div class="universos-grid">
+
+            <div class="universo-card u-aot fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/attack_on_titan.png" alt="Attack on Titan EPIC - conviértete en soldado">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Attack on Titan</div>
+                    <div class="universo-tag">Shingeki no Kyojin</div>
+                    <p class="universo-desc">Las Fuerzas de Reconocimiento te esperan. Equipa la ropa de maniobra tridimensional y defiende la humanidad.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-superman fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/superman.png" alt="Superman EPIC - el hombre de acero eres tú">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Superman</div>
+                    <div class="universo-tag">El Hombre de Acero</div>
+                    <p class="universo-desc">La capa, el símbolo y la fortaleza del Hombre de Acero. El héroe más icónico de todos los tiempos, eras tú.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-spiderman fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/spiderman.jpg" alt="Spiderman EPIC - el amigable vecino">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Spiderman</div>
+                    <div class="universo-tag">El Amigable Vecino</div>
+                    <p class="universo-desc">Con gran poder viene una gran responsabilidad. Las telarañas y el traje rojo y azul son tuyos.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-dragonball fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/dragon_ball.png" alt="Dragon Ball EPIC - Super Saiyajin eres tú">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Dragon Ball</div>
+                    <div class="universo-tag">El ki infinito</div>
+                    <p class="universo-desc">El cabello dorado, el ki ardiente y la fuerza de un Super Saiyajin. Es tu momento de alcanzar el límite.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-dioses fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/diosa.png" alt="Dioses EPIC - poder celestial">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Dioses</div>
+                    <div class="universo-tag">Poder celestial</div>
+                    <p class="universo-desc">La majestad de las deidades: luz dorada, poderes divinos y una presencia que trasciende el mundo mortal.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-villanos fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/villano.png" alt="Villanos EPIC - el lado oscuro">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Villanos</div>
+                    <div class="universo-tag">El lado oscuro</div>
+                    <p class="universo-desc">Porque a veces el villano tiene los mejores poderes. Energía oscura, caos y una presencia magnética irresistible.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-onepiece fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/one_piece.png" alt="One Piece EPIC - el Rey de los Piratas">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">One Piece</div>
+                    <div class="universo-tag">El Rey de los Piratas</div>
+                    <p class="universo-desc">El sombrero de paja, el espíritu aventurero y la promesa de encontrar el tesoro más grande del mundo.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-batman fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/batman.png" alt="Batman EPIC - el Caballero Oscuro">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Batman</div>
+                    <div class="universo-tag">El Caballero Oscuro</div>
+                    <p class="universo-desc">La silueta contra la luna de Gotham, la capa negra y la leyenda del vigilante más temido de la ciudad.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-cyberpunk fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/ciberpunk.png" alt="Cyberpunk EPIC - mercenario de Night City">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Cyberpunk</div>
+                    <div class="universo-tag">Night City · 2077</div>
+                    <p class="universo-desc">Neones, implantes cibernéticos y la ciudad que nunca duerme. Eres el mercenario más letal del futuro distópico.</p>
+                </div>
+            </div>
+
+            <div class="universo-card u-wonderwoman fade-in">
+                <div class="universo-img">
+                    <img src="assets/catalogo/epic/wonder_woman.png" alt="Wonder Woman EPIC - la Amazona">
+                </div>
+                <div class="universo-body">
+                    <div class="universo-name">Wonder Woman</div>
+                    <div class="universo-tag">La Amazona</div>
+                    <p class="universo-desc">La armadura dorada, el lazo de la verdad y la fuerza indomable de la guerrera más poderosa del mundo.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- PRODUCT INFO -->
+    <section class="product-info">
+        <div class="product-info-inner">
+            <div class="fade-in">
+                <div class="section-label">Soporte · Metacrilato</div>
+                <h3 class="epic-section-title" style="font-size:1.4rem;">Cuadro de Metacrilato</h3>
+                <p class="epic-section-body">Impresión en alta resolución sobre metacrilato cristalino montado en bastidor de madera. Colores explosivos, detalles perfectos.</p>
+                <table class="sizes-table">
+                    <thead><tr><th>Tamaño</th><th>Formato</th></tr></thead>
+                    <tbody>
+                        <tr><td>20 × 30 cm</td><td>Retrato compacto</td></tr>
+                        <tr><td>30 × 40 cm</td><td>Retrato estándar</td></tr>
+                        <tr><td>40 × 60 cm</td><td>Retrato gran formato</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="fade-in">
+                <div class="section-label">Iluminación opcional</div>
+                <h3 class="epic-section-title" style="font-size:1.4rem;">LED que da vida al poder</h3>
+                <p class="epic-section-body">Añade iluminación para una experiencia visual sin igual. USB Tipo-C o pilas AA.</p>
+                <table class="sizes-table">
+                    <thead><tr><th>Tipo de LED</th><th>Control</th></tr></thead>
+                    <tbody>
+                        <tr><td>🌈 RGB Neon</td><td>Mando a distancia</td></tr>
+                        <tr><td>○ Blanca</td><td>Interruptor</td></tr>
+                        <tr><td>◑ Cálida</td><td>Interruptor</td></tr>
+                        <tr><td>✦ Sin luz</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE/AFTER -->
+    <section class="ba-section fade-in">
+        <div class="section-label" style="text-align:center;">Del original al héroe</div>
+        <h2 class="epic-section-title" style="text-align:center;">Tu foto, tu universo</h2>
+        <p class="epic-section-body" style="text-align:center;max-width:560px;margin:0 auto;">Envíanos tu fotografía, elige tu universo y nos encargamos del resto. El resultado es un cuadro único e irrepetible.</p>
+        <div class="ba-grid">
+            <div style="position:relative;">
+                <img src="assets/catalogo/epic/ejemplo_sin_luz.png" alt="Cuadro EPIC metacrilato sin iluminación" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06);display:block;aspect-ratio:3/4;object-fit:cover;">
+                <div style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.8);color:rgba(255,255,255,0.5);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;backdrop-filter:blur(6px);">SIN LUZ · ANTES</div>
+            </div>
+            <div style="position:relative;">
+                <img src="assets/catalogo/epic/ejemplo_luz_calida.png" alt="Cuadro EPIC metacrilato con LED cálido encendido" style="width:100%;border-radius:8px;border:1px solid rgba(255,140,0,0.4);box-shadow:0 0 40px rgba(255,100,0,0.15);display:block;aspect-ratio:3/4;object-fit:cover;">
+                <div style="position:absolute;top:12px;left:12px;background:rgba(255,120,0,0.9);color:#fff;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;">LED CÁLIDO · DESPUÉS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process-bg fade-in">
+        <div class="section-label">Sin complicaciones</div>
+        <h2 class="epic-section-title">Tu EPIC en cuatro pasos</h2>
+        <div class="process-steps">
+            <div class="paso"><div class="paso-num">01</div><div class="paso-label">Foto</div><p class="paso-desc">Envíanos tu foto por WhatsApp</p></div>
+            <div class="paso"><div class="paso-num">02</div><div class="paso-label">Universo</div><p class="paso-desc">Elige tu universo favorito</p></div>
+            <div class="paso"><div class="paso-num">03</div><div class="paso-label">Prueba</div><p class="paso-desc">Aprueba el diseño antes de producir</p></div>
+            <div class="paso"><div class="paso-num">04</div><div class="paso-label">A casa</div><p class="paso-desc">Producción y entrega a tu puerta</p></div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-final fade-in">
+        <p class="cta-quote">"Porque dentro de todos hay un héroe esperando salir."</p>
+        <p class="cta-body">Dinos qué universo te llama, mándanos tu foto y nosotros te convertimos en leyenda. Una sola pieza. Tuya para siempre.</p>
+        <a href="https://wa.me/34711240002" target="_blank" class="cta-btn">Pedir mi EPIC · WhatsApp</a>
+        <div class="social-links mt-4">
+            <a href="https://www.instagram.com/artemichiregalos" target="_blank" rel="noopener" class="social-btn">@artemichiregalos en Instagram</a>
+            <a href="https://www.facebook.com/artemichiregalos" target="_blank" rel="noopener" class="social-btn">@artemichiregalos en Facebook</a>
+        </div>
+    </div>
+
+    <footer><div class="container text-center"><p>&copy; <span id="year"></span> Artemichi. Arte mediante corte y grabado láser. Todos los derechos reservados.</p></div></footer>
+    <script src="script.js"></script>
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const obs = new IntersectionObserver((e,o)=>e.forEach(x=>{if(!x.isIntersecting)return;x.target.classList.add('visible');o.unobserve(x.target);}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+        faders.forEach(f=>obs.observe(f));
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.body.classList.add('loaded');
+        setTimeout(()=>document.querySelector('.epic-hero').classList.add('visible'),100);
+    </script>
+</body>
+</html>
