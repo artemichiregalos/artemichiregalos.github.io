@@ -225,3 +225,108 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 });
+
+// --- GLOBAL LIGHTBOX GALLERY ---
+let galleryImages = [];
+let currentGalleryIndex = 0;
+let galleryInterval = null;
+
+function createGalleryOverlay() {
+    if (document.getElementById('global-gallery-modal')) return;
+    
+    const modalHTML = `
+        <div id="global-gallery-modal" class="image-gallery-modal">
+            <span class="close-gallery" onclick="cerrarGaleria()">×</span>
+            <div class="gallery-nav-btn gallery-prev" onclick="cambiarImagenGaleria(-1, event)">‹</div>
+            <div class="gallery-image-container" id="gallery-image-container" onclick="event.stopPropagation()">
+                <!-- Imágenes se inyectarán aquí -->
+            </div>
+            <div class="gallery-nav-btn gallery-next" onclick="cambiarImagenGaleria(1, event)">›</div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Close on clicking outside
+    document.getElementById('global-gallery-modal').addEventListener('click', function(e) {
+        if (e.target.id === 'global-gallery-modal') {
+            cerrarGaleria();
+        }
+    });
+}
+
+window.abrirGaleria = function(imagesArray) {
+    if (!imagesArray || imagesArray.length === 0) return;
+    createGalleryOverlay();
+    
+    galleryImages = imagesArray;
+    currentGalleryIndex = 0;
+    
+    const container = document.getElementById('gallery-image-container');
+    container.innerHTML = '';
+    
+    // Create image elements
+    imagesArray.forEach((src, idx) => {
+        const img = document.createElement('img');
+        img.src = src;
+        if (idx === 0) img.classList.add('active');
+        container.appendChild(img);
+    });
+    
+    const modal = document.getElementById('global-gallery-modal');
+    modal.style.display = 'flex';
+    // Trigger reflow for transition
+    setTimeout(() => { modal.classList.add('show'); }, 10);
+    
+    // Navigation arrows visibility
+    const prevBtn = document.querySelector('.gallery-prev');
+    const nextBtn = document.querySelector('.gallery-next');
+    if (imagesArray.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        iniciarIntervaloGaleria();
+    } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        detenerIntervaloGaleria();
+    }
+};
+
+window.cerrarGaleria = function() {
+    const modal = document.getElementById('global-gallery-modal');
+    if (modal) {
+        modal.classList.remove('show');
+        setTimeout(() => { modal.style.display = 'none'; }, 400);
+    }
+    detenerIntervaloGaleria();
+};
+
+window.cambiarImagenGaleria = function(dir, event) {
+    if (event) event.stopPropagation();
+    detenerIntervaloGaleria(); // Stop auto rotation if user clicks manually
+    
+    const imgs = document.getElementById('gallery-image-container').querySelectorAll('img');
+    imgs[currentGalleryIndex].classList.remove('active');
+    
+    currentGalleryIndex = (currentGalleryIndex + dir + galleryImages.length) % galleryImages.length;
+    
+    imgs[currentGalleryIndex].classList.add('active');
+};
+
+function iniciarIntervaloGaleria() {
+    detenerIntervaloGaleria();
+    galleryInterval = setInterval(() => {
+        const imgs = document.getElementById('gallery-image-container').querySelectorAll('img');
+        if(imgs.length > 0) {
+            imgs[currentGalleryIndex].classList.remove('active');
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            imgs[currentGalleryIndex].classList.add('active');
+        }
+    }, 3500);
+}
+
+function detenerIntervaloGaleria() {
+    if (galleryInterval) {
+        clearInterval(galleryInterval);
+        galleryInterval = null;
+    }
+}

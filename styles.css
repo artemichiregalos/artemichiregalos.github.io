@@ -777,3 +777,90 @@ footer {
         font-size: 2.5rem;
     }
 }
+
+/* --- LIGHTBOX GALLERY OVERLAY --- */
+.image-gallery-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    top: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(5, 2, 5, 0.96); 
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    align-items: center; 
+    justify-content: center;
+}
+.image-gallery-modal.show {
+    display: flex;
+    opacity: 1;
+}
+.image-gallery-modal .close-gallery {
+    position: absolute; 
+    top: 30px; 
+    right: 40px; 
+    color: var(--clr-gold); 
+    font-size: 40px; 
+    font-weight: 300; 
+    cursor: pointer; 
+    transition: color 0.3s, transform 0.3s;
+    z-index: 10;
+}
+.image-gallery-modal .close-gallery:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+.gallery-image-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-image-container img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+.gallery-image-container img.active {
+    opacity: 1;
+}
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: var(--clr-gold);
+    border: 1px solid rgba(212,175,55,0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+}
+.gallery-nav-btn:hover {
+    background: var(--clr-gold);
+    color: #000;
+}
+.gallery-prev { left: -60px; }
+.gallery-next { right: -60px; }
+@media (max-width: 1150px) {
+    .gallery-prev { left: 10px; }
+    .gallery-next { right: 10px; }
+    .image-gallery-modal .close-gallery { top: 15px; right: 20px; }
+}
