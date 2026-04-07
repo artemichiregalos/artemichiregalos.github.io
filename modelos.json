@@ -52107,7 +52107,7 @@
         "ambiente": "épico",
         "id": 1699,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/attack_on_titan.png"
+        "archivo": "assets/catalogo/epic/attack_on_titan.webp"
     },
     {
         "nombre": "Superman - EPIC",
@@ -52116,7 +52116,7 @@
         "ambiente": "épico",
         "id": 1700,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/superman.png"
+        "archivo": "assets/catalogo/epic/superman.webp"
     },
     {
         "nombre": "Spiderman - EPIC",
@@ -52125,7 +52125,7 @@
         "ambiente": "épico",
         "id": 1701,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/spiderman.jpg"
+        "archivo": "assets/catalogo/epic/spiderman.webp"
     },
     {
         "nombre": "Dragon Ball - EPIC",
@@ -52134,7 +52134,7 @@
         "ambiente": "épico",
         "id": 1702,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/dragon_ball.png"
+        "archivo": "assets/catalogo/epic/dragon_ball.webp"
     },
     {
         "nombre": "Dioses - EPIC",
@@ -52143,7 +52143,7 @@
         "ambiente": "elegante",
         "id": 1703,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/diosa.png"
+        "archivo": "assets/catalogo/epic/diosa.webp"
     },
     {
         "nombre": "Villanos - EPIC",
@@ -52152,7 +52152,7 @@
         "ambiente": "misterioso",
         "id": 1704,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/villano.png"
+        "archivo": "assets/catalogo/epic/villano.webp"
     },
     {
         "nombre": "One Piece - EPIC",
@@ -52161,7 +52161,7 @@
         "ambiente": "épico",
         "id": 1705,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/one_piece.png"
+        "archivo": "assets/catalogo/epic/one_piece.webp"
     },
     {
         "nombre": "Batman - EPIC",
@@ -52170,7 +52170,7 @@
         "ambiente": "misterioso",
         "id": 1706,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/batman.png"
+        "archivo": "assets/catalogo/epic/batman.webp"
     },
     {
         "nombre": "Cyberpunk - EPIC",
@@ -52179,7 +52179,7 @@
         "ambiente": "épico",
         "id": 1707,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/ciberpunk.png"
+        "archivo": "assets/catalogo/epic/ciberpunk.webp"
     },
     {
         "nombre": "Wonder Woman - EPIC",
@@ -52188,7 +52188,7 @@
         "ambiente": "épico",
         "id": 1708,
         "categoria": "epic",
-        "archivo": "assets/catalogo/epic/wonder_woman.png"
+        "archivo": "assets/catalogo/epic/wonder_woman.webp"
     },
     {
         "nombre": "AURA Blanca - Retrato de energía",
@@ -52197,7 +52197,7 @@
         "ambiente": "elegante",
         "id": 1709,
         "categoria": "aura",
-        "archivo": "assets/catalogo/metacrilato/producto_led_morado.jpg"
+        "archivo": "assets/catalogo/metacrilato/producto_led_morado.webp"
     },
     {
         "nombre": "AURA Azul - Retrato de energía",
@@ -52206,7 +52206,7 @@
         "ambiente": "elegante",
         "id": 1710,
         "categoria": "aura",
-        "archivo": "assets/catalogo/aura/aura_azul.png"
+        "archivo": "assets/catalogo/aura/aura_azul.webp"
     },
     {
         "nombre": "AURA Roja - Retrato de energía",
@@ -52215,7 +52215,7 @@
         "ambiente": "épico",
         "id": 1711,
         "categoria": "aura",
-        "archivo": "assets/catalogo/metacrilato/producto_led_morado.jpg"
+        "archivo": "assets/catalogo/metacrilato/producto_led_morado.webp"
     },
     {
         "nombre": "AURA Fuego - Retrato de energía",
@@ -52224,7 +52224,7 @@
         "ambiente": "épico",
         "id": 1712,
         "categoria": "aura",
-        "archivo": "assets/catalogo/aura/aura_fuego.png"
+        "archivo": "assets/catalogo/aura/aura_fuego.webp"
     },
     {
         "nombre": "AURA Cósmica - Retrato de energía",
@@ -52233,7 +52233,7 @@
         "ambiente": "misterioso",
         "id": 1713,
         "categoria": "aura",
-        "archivo": "assets/catalogo/aura/aura_cosmica.png"
+        "archivo": "assets/catalogo/aura/aura_cosmica.webp"
     },
     {
         "nombre": "AURA Verde - Retrato de energía",
@@ -52242,7 +52242,7 @@
         "ambiente": "elegante",
         "id": 1714,
         "categoria": "aura",
-        "archivo": "assets/catalogo/metacrilato/producto_led_morado.jpg"
+        "archivo": "assets/catalogo/metacrilato/producto_led_morado.webp"
     }
 ]
 

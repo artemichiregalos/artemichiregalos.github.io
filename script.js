@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // --- SEGURIDAD ANTI-COPIAS Y CAPTURAS ---
+    // Prevenir click derecho
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    // Prevenir atajos de teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12') { e.preventDefault(); return false; }
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
+        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'c')) { e.preventDefault(); return false; }
+        if (e.key === 'PrintScreen') {
+            navigator.clipboard.writeText('');
+            e.preventDefault(); 
+            return false;
+        }
+    });
+
     // Current Year in Footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -330,3 +345,68 @@ function detenerIntervaloGaleria() {
         galleryInterval = null;
     }
 }
+
+// ─── BANNER DE COOKIES (AEPD-compliant) ─────────────────────────────────────
+(function initCookieBanner() {
+    if (localStorage.getItem('artemichi_cookies_consent')) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'cookie-banner';
+    banner.innerHTML = `
+        <div style="
+            position:fixed; bottom:0; left:0; right:0; z-index:99999;
+            background:rgba(15,12,9,0.97); backdrop-filter:blur(12px);
+            border-top:1px solid rgba(212,175,55,0.25);
+            padding:1.25rem 2rem; display:flex; align-items:center;
+            gap:1.5rem; flex-wrap:wrap; justify-content:space-between;
+            box-shadow:0 -4px 30px rgba(0,0,0,0.6);
+            animation: slideUpBanner 0.4s ease;
+        ">
+            <div style="flex:1; min-width:220px;">
+                <p style="color:#e8e2d2; font-size:0.9rem; margin:0 0 0.3rem; line-height:1.6;">
+                    🍪 <strong style="color:#d4af37;">Artemichi usa cookies</strong> técnicas para el correcto funcionamiento del sitio web.
+                </p>
+                <p style="color:#a9a396; font-size:0.8rem; margin:0;">
+                    Puedes consultar nuestra <a href="cookies.html" style="color:#d4af37; text-decoration:none;">Política de Cookies</a> y <a href="privacidad.html" style="color:#d4af37; text-decoration:none;">Política de Privacidad</a>.
+                </p>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-shrink:0;">
+                <button id="cookies-reject" style="
+                    background:transparent; border:1px solid rgba(255,255,255,0.2);
+                    color:#a9a396; border-radius:6px; padding:0.5rem 1.25rem;
+                    cursor:pointer; font-size:0.88rem; transition:all 0.2s;
+                " onmouseover="this.style.borderColor='#fff';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='#a9a396'">
+                    Solo técnicas
+                </button>
+                <button id="cookies-accept" style="
+                    background:linear-gradient(135deg,#c9a227,#a07d1a); border:none;
+                    color:#1a1208; border-radius:6px; padding:0.5rem 1.25rem;
+                    cursor:pointer; font-size:0.88rem; font-weight:700; transition:opacity 0.2s;
+                " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                    Aceptar todas
+                </button>
+            </div>
+        </div>
+        <style>
+            @keyframes slideUpBanner {
+                from { transform: translateY(100%); }
+                to { transform: translateY(0); }
+            }
+        </style>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById('cookies-accept').addEventListener('click', () => {
+        localStorage.setItem('artemichi_cookies_consent', 'all');
+        banner.style.transition = 'opacity 0.4s';
+        banner.style.opacity = '0';
+        setTimeout(() => banner.remove(), 400);
+    });
+
+    document.getElementById('cookies-reject').addEventListener('click', () => {
+        localStorage.setItem('artemichi_cookies_consent', 'essential');
+        banner.style.transition = 'opacity 0.4s';
+        banner.style.opacity = '0';
+        setTimeout(() => banner.remove(), 400);
+    });
+})();

@@ -466,17 +466,40 @@
             const y = (size - h) / 2;
             ctx.drawImage(img, x, y, w, h);
 
-            // ── Watermark — texto diagonal repetido ──
+            // ── Watermark — patrón agresivo y multicolor ──
             ctx.save();
-            ctx.globalAlpha = 0.12;
-            ctx.fillStyle = "#4a3500";
-            ctx.font = `bold ${small ? 11 : 18}px 'Outfit', sans-serif`;
+            ctx.globalAlpha = 0.35; // Mayor opacidad para dificultar borrado
             ctx.translate(size / 2, size / 2);
             ctx.rotate(-35 * Math.PI / 180);
-            const step = small ? 60 : 110;
-            for (let yy = -size; yy < size; yy += step) {
-                for (let xx = -size; xx < size; xx += step) {
+            
+            // Variedad de colores para evitar el borrado fácil por luma/chroma keying
+            const waterColors = ["#d4af37", "#ffffff", "#121212", "#c9a227", "#a07d1a", "#ff4080", "#00c0ff"];
+            let colorIdx = 0;
+            
+            // Tamaños mayores
+            const fontSizePrimary = small ? 16 : 30;
+            const fontSizeSecondary = small ? 9 : 14;
+            const stepX = small ? 140 : 240;
+            const stepY = small ? 60 : 100;
+            
+            for (let yy = -size * 1.5; yy < size * 1.5; yy += stepY) {
+                for (let xx = -size * 1.5; xx < size * 1.5; xx += stepX) {
+                    
+                    // Texto Principal
+                    ctx.font = `bold ${fontSizePrimary}px 'Outfit', sans-serif`;
+                    ctx.fillStyle = waterColors[colorIdx % waterColors.length];
+                    // Sombra al texto para mayor contraste sobre cualquier fondo
+                    ctx.shadowColor = "rgba(0,0,0,0.8)";
+                    ctx.shadowBlur = 4;
                     ctx.fillText(WATERMARK_TEXT, xx, yy);
+                    
+                    // Doble marca intercalada "PROTEGIDO" translúcido
+                    ctx.shadowBlur = 0;
+                    ctx.font = `bold ${fontSizeSecondary}px 'Outfit', sans-serif`;
+                    ctx.fillStyle = "rgba(255,255,255,0.7)";
+                    ctx.fillText("DISEÑO PROTEGIDO", xx + (small ? 30 : 50), yy + (small ? 25 : 40));
+                    
+                    colorIdx++;
                 }
             }
             ctx.restore();
