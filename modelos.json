@@ -52666,5 +52666,141 @@
     "id": 1718,
     "categoria": "aura",
     "archivo": "assets/catalogo/aura/AURA DORADA.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo 3D",
+    "tags": [
+      "caricatura",
+      "3d",
+      "volumen",
+      "profundidad",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato"
+    ],
+    "estilo": "realista",
+    "ambiente": "moderno",
+    "id": 1719,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_3d.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo Anime",
+    "tags": [
+      "caricatura",
+      "anime",
+      "japones",
+      "manga",
+      "otaku",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato"
+    ],
+    "estilo": "animado",
+    "ambiente": "juvenil",
+    "id": 1720,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_anime.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo Cómic",
+    "tags": [
+      "caricatura",
+      "comic",
+      "pop art",
+      "viñeta",
+      "dibujo",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato"
+    ],
+    "estilo": "ilustrativo",
+    "ambiente": "divertido",
+    "id": 1721,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_comic.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo Kawaii",
+    "tags": [
+      "caricatura",
+      "kawaii",
+      "tierno",
+      "adorable",
+      "niños",
+      "infantil",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato"
+    ],
+    "estilo": "simple",
+    "ambiente": "infantil",
+    "id": 1722,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_kawaii.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo Manga",
+    "tags": [
+      "caricatura",
+      "manga",
+      "japones",
+      "dibujo",
+      "linea",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato"
+    ],
+    "estilo": "ilustrativo",
+    "ambiente": "juvenil",
+    "id": 1723,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_manga.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo Muppets (Teleñecos)",
+    "tags": [
+      "caricatura",
+      "muppets",
+      "teleñecos",
+      "barrio sésamo",
+      "marioneta",
+      "fieltro",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato",
+      "jim henson"
+    ],
+    "estilo": "organico",
+    "ambiente": "divertido",
+    "id": 1724,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_muppets.webp"
+  },
+  {
+    "nombre": "Caricatura Estilo Vectorial",
+    "tags": [
+      "caricatura",
+      "vectorial",
+      "diseño",
+      "digital",
+      "limpio",
+      "minimalista",
+      "personaje",
+      "regalo personalizado",
+      "foto",
+      "retrato"
+    ],
+    "estilo": "geometrico",
+    "ambiente": "moderno",
+    "id": 1725,
+    "categoria": "caricaturas",
+    "archivo": "assets/catalogo/caricaturas/estilo_vectorial.webp"
   }
 ]
