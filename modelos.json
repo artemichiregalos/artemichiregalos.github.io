@@ -52215,7 +52215,7 @@
     "ambiente": "épico",
     "id": 1702,
     "categoria": "epic",
-    "archivo": "assets/catalogo/epic/dragon_ball.webp"
+    "archivo": "assets/catalogo/epic/dragon_ball_nuevo.webp"
   },
   {
     "nombre": "Dioses - EPIC",
@@ -52571,5 +52571,100 @@
     "id": 1714,
     "categoria": "aura",
     "archivo": "assets/catalogo/aura/AURA VERDE.webp"
+  },
+  {
+    "nombre": "AURA Sombra - Retrato de energía",
+    "tags": [
+      "aura",
+      "sombra",
+      "retrato",
+      "energía",
+      "misterio",
+      "espiritualidad",
+      "diseño personalizado",
+      "regalo",
+      "metacrilato",
+      "led",
+      "oscuro",
+      "negro",
+      "gris"
+    ],
+    "estilo": "misterioso",
+    "ambiente": "elegante",
+    "id": 1715,
+    "categoria": "aura",
+    "archivo": "assets/catalogo/aura/AURA SOMBRA.webp"
+  },
+  {
+    "nombre": "AURA Rosa - Retrato de energía",
+    "tags": [
+      "aura",
+      "rosa",
+      "retrato",
+      "energía",
+      "amor",
+      "sentimiento",
+      "espiritualidad",
+      "diseño personalizado",
+      "regalo",
+      "metacrilato",
+      "led",
+      "femenino",
+      "calidez"
+    ],
+    "estilo": "organico",
+    "ambiente": "romantico",
+    "id": 1716,
+    "categoria": "aura",
+    "archivo": "assets/catalogo/aura/AURA ROSA.webp"
+  },
+  {
+    "nombre": "AURA Arcoíris - Retrato de energía",
+    "tags": [
+      "aura",
+      "arcoiris",
+      "arco iris",
+      "retrato",
+      "energía",
+      "multicolor",
+      "alegría",
+      "diversión",
+      "diseño personalizado",
+      "regalo",
+      "metacrilato",
+      "led",
+      "colorido",
+      "vibrante"
+    ],
+    "estilo": "geometrico",
+    "ambiente": "divertido",
+    "id": 1717,
+    "categoria": "aura",
+    "archivo": "assets/catalogo/aura/AURA ARCOIRIS.webp"
+  },
+  {
+    "nombre": "AURA Dorada - Retrato de energía",
+    "tags": [
+      "aura",
+      "dorada",
+      "oro",
+      "retrato",
+      "energía",
+      "lujo",
+      "brillo",
+      "éxito",
+      "espiritualidad",
+      "diseño personalizado",
+      "regalo",
+      "metacrilato",
+      "led",
+      "premium",
+      "elegancia"
+    ],
+    "estilo": "detallado",
+    "ambiente": "elegante",
+    "id": 1718,
+    "categoria": "aura",
+    "archivo": "assets/catalogo/aura/AURA DORADA.webp"
   }
 ]
