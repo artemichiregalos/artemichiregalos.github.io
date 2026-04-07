@@ -1,0 +1,10 @@
+﻿User-agent: *
+Allow: /
+
+# No indexar páginas internas o de herramientas
+Disallow: /temp_preview.html
+Disallow: /firma_correo.html
+Disallow: /fuentes.html
+
+# Sitemap
+Sitemap: https://www.artemichi.es/sitemap.xml
