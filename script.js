@@ -163,6 +163,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    let currentComboMode = 'complementaria'; // default
+    let currentSelectedColor = null;
+
+    // Helper for color logic
+    function hexToHSL(hex) {
+        let r = parseInt(hex.slice(1,3), 16) / 255;
+        let g = parseInt(hex.slice(3,5), 16) / 255;
+        let b = parseInt(hex.slice(5,7), 16) / 255;
+        let max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h = 0, s = 0, l = (max + min) / 2;
+        if (max !== min) {
+            let d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch(max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+        }
+        return { h: h*360, s, l };
+    }
+
+    window.changeComboMode = function(mode) {
+        currentComboMode = mode;
+        if (currentSelectedColor) showRecommendations(currentSelectedColor);
+    };
+
+    window.shuffleCombo = function() {
+        if (currentSelectedColor) showRecommendations(currentSelectedColor, true);
+    };
+
     // Render colors
     if (colorsGrid) {
         colorChart.forEach((color, index) => {
@@ -181,47 +213,57 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("click", () => {
                 document.querySelectorAll(".color-item").forEach(c => c.classList.remove("selected"));
                 item.classList.add("selected");
-                showRecommendations(color, index);
+                showRecommendations(color);
             });
             
             colorsGrid.appendChild(item);
         });
     }
 
-    function showRecommendations(selectedColor, index) {
-        // Always aim for a good neutral as one of the recommendations
-        let neutral = colorChart.find(c => c.id === 'safari'); 
-        if(selectedColor.id === 'safari' || selectedColor.id === 'blanco' || selectedColor.id === 'hueso') {
-            neutral = colorChart.find(c => c.id === 'negro');
-        }
-        
-        // Use a Set to guarantee uniqueness
-        const uniqueRecs = new Set();
-        uniqueRecs.add(neutral);
-        
-        // Add 3 more pseudo-randomly calculated colors that are offset across the chart
-        const offsets = [7, 14, Math.floor(colorChart.length / 2), 4, 9, 12];
-        let offsetIndex = 0;
-        
-        while(uniqueRecs.size < 4 && offsetIndex < offsets.length) {
-            const candidate = colorChart[(index + offsets[offsetIndex]) % colorChart.length];
-            if (candidate.id !== selectedColor.id) {
-                uniqueRecs.add(candidate);
+    function showRecommendations(selectedColor, forceShuffle = false) {
+        currentSelectedColor = selectedColor;
+        const baseHsl = hexToHSL(selectedColor.hex);
+        const isNeutral = baseHsl.s < 0.15 || baseHsl.l > 0.9 || baseHsl.l < 0.1;
+
+        let pool = [];
+
+        colorChart.forEach(candidate => {
+            if (candidate.id === selectedColor.id) return;
+            const candHsl = hexToHSL(candidate.hex);
+            const isCandNeutral = candHsl.s < 0.15 || candHsl.l > 0.9 || candHsl.l < 0.1;
+            
+            let dH = Math.abs(baseHsl.h - candHsl.h);
+            dH = Math.min(dH, 360 - dH);
+
+            if (isNeutral) {
+                if (currentComboMode === 'monocromatica') {
+                    if (isCandNeutral) pool.push(candidate);
+                } else {
+                    if (!isCandNeutral) pool.push(candidate);
+                }
+            } else {
+                if (currentComboMode === 'monocromatica') {
+                    if (dH <= 45 || isCandNeutral) pool.push(candidate);
+                } else if (currentComboMode === 'analoga') {
+                    if ((dH > 30 && dH <= 90) || isCandNeutral) pool.push(candidate);
+                } else if (currentComboMode === 'complementaria') {
+                    if (dH > 120 || isCandNeutral) pool.push(candidate);
+                }
             }
-            offsetIndex++;
-        }
-        
-        // Fallback in case we still don't have 4 (extremely unlikely)
-        let fallbackIndex = 1;
-        while(uniqueRecs.size < 4) {
-            const candidate = colorChart[(index + fallbackIndex) % colorChart.length];
-            if (candidate.id !== selectedColor.id) {
-                uniqueRecs.add(candidate);
-            }
-            fallbackIndex++;
+        });
+
+        // Ensure we always have enough colors by falling back
+        if (pool.length < 4) {
+            colorChart.forEach(c => {
+                if (c.id !== selectedColor.id && !pool.includes(c)) pool.push(c);
+            });
         }
 
-        const finalRecs = Array.from(uniqueRecs);
+        // Randomize pool to allow dynamic generation
+        pool.sort(() => Math.random() - 0.5);
+        
+        // Take 4 unique colors
+        const finalRecs = pool.slice(0, 4);
 
         recommendationsPanel.innerHTML = `
             <div class="selected-color-info fade-in visible">
@@ -229,6 +271,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h4 style="font-family: var(--font-heading); color: #fff; font-size: 1.5rem;">${selectedColor.name}</h4>
                 <p style="color: var(--clr-text-muted); font-size: 0.85rem;">Combina a la perfección con:</p>
             </div>
+            
+            <!-- CONTROLES DE COMBINACIÓN -->
+            <div class="combo-controls fade-in visible" style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:20px; align-items:center;">
+                <button class="combo-btn ${currentComboMode === 'complementaria' ? 'active' : ''}" onclick="window.changeComboMode('complementaria')">Complementaria</button>
+                <button class="combo-btn ${currentComboMode === 'analoga' ? 'active' : ''}" onclick="window.changeComboMode('analoga')">Análoga</button>
+                <button class="combo-btn ${currentComboMode === 'monocromatica' ? 'active' : ''}" onclick="window.changeComboMode('monocromatica')">Monocromática</button>
+                <button class="combo-shuffle-btn" onclick="window.shuffleCombo()" title="Generar otra combinación">
+                    <span style="font-size:1.2rem;">↻</span>
+                </button>
+            </div>
+
             <div class="rec-grid fade-in visible" style="margin-top: 20px;">
                 ${finalRecs.map(rec => `
                     <div class="rec-item">
@@ -237,6 +290,41 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `).join('')}
             </div>
+            
+            <style>
+            .combo-btn {
+                background: transparent;
+                border: 1px solid rgba(212,175,55,0.4);
+                color: var(--clr-text-muted);
+                border-radius: 20px;
+                padding: 6px 14px;
+                font-size: 0.8rem;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            .combo-btn.active, .combo-btn:hover {
+                background: rgba(212,175,55,0.1);
+                border-color: var(--clr-gold);
+                color: var(--clr-gold);
+            }
+            .combo-shuffle-btn {
+                background: transparent;
+                border: 1px solid rgba(255,255,255,0.2);
+                border-radius: 50%;
+                width: 32px;
+                height: 32px;
+                color: var(--clr-gold);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s, border-color 0.3s;
+            }
+            .combo-shuffle-btn:hover {
+                transform: rotate(180deg);
+                border-color: var(--clr-gold);
+            }
+            </style>
         `;
     }
 });
