@@ -526,7 +526,7 @@ function detenerIntervaloGaleria() {
 
     const langHTML = `
         <li class="lang-menu">
-            <button id="current-lang-btn" class="lang-menu-btn">🇪🇸 ES</button>
+            <button id="current-lang-btn" class="lang-menu-btn"><span style="font-size:1.1rem;margin-right:4px;">🌍</span> 🇪🇸 ES</button>
             <div class="lang-dropdown">
                 <a href="#" onclick="changeLang('es'); return false;">🇪🇸 Español</a>
                 <a href="#" onclick="changeLang('en'); return false;">🇬🇧 English</a>
@@ -566,6 +566,6 @@ function detenerIntervaloGaleria() {
     
     const btn = document.getElementById('current-lang-btn');
     if (btn) {
-        btn.innerText = flags[currentLangCode] || '🌍 Idioma';
+        btn.innerHTML = `<span style="font-size:1.1rem;margin-right:4px;">🌍</span> ${flags[currentLangCode] || 'Idioma'}`;
     }
 })();

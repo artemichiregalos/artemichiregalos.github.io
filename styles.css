@@ -909,7 +909,7 @@ body { top: 0 !important; }
 .lang-dropdown {
     display: none;
     position: absolute;
-    top: 120%;
+    top: calc(100% + 8px);
     right: 0;
     background: rgba(15, 12, 9, 0.95);
     backdrop-filter: blur(10px);
@@ -918,8 +918,16 @@ body { top: 0 !important; }
     min-width: 140px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     z-index: 2000;
-    overflow: hidden;
     animation: slideUpBanner 0.2s ease-out forwards;
+}
+.lang-dropdown::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: transparent;
 }
 .lang-menu:hover .lang-dropdown {
     display: block;
