@@ -547,15 +547,14 @@ function detenerIntervaloGaleria() {
         navbarLinks.appendChild(tempContainer.firstElementChild);
     }
 
-    // 4. Lógica de cambio de idioma
     window.changeLang = function(lang) {
         // Limpiar cookies de GTranslate previas
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
         
         if (lang !== 'es') {
-            document.cookie = \`googtrans=/es/\${lang}; path=/;\`;
-            document.cookie = \`googtrans=/es/\${lang}; path=/; domain=\${location.hostname};\`;
+            document.cookie = `googtrans=/es/${lang}; path=/;`;
+            document.cookie = `googtrans=/es/${lang}; path=/; domain=${location.hostname};`;
         }
         location.reload();
     };
