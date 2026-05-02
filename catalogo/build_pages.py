@@ -294,22 +294,10 @@ pages_data = {
             ('🪟', 'Marco de Pino Profundo', 'Construido a mano para encapsular la escena.')
         ]
     },
-    'marcos.html': {
-        'TITLE': 'Marcos para Fotos',
-        'NUMBER': '07',
-        'DESC': 'Cada momento merece un encuadre espectacular. Transforma un borde básico en el preámbulo visual y narrativo de un recuerdo inquebrantable.',
-        'FEATURES': [
-            ('Siluetas Decorativas y Especiales', 'Geometría láser integrando contornos de animales, mapas urbanos o naturaleza.'),
-            ('Texto y Frases Alrededor', 'Fechas, nombres cursivos o juramentos distribuidos rodeando el instante atrapado.'),
-            ('Collage Multi-Cuadro', 'Varias ranuras diseñadas meticulosamente para narrativas familiares completas de alto valor.')
-        ],
-        'MATERIALS': [
-            ('🖼️', 'Madera y Foam Texturado', 'Cortes milimétricos al formato necesario.'),
-        ]
-    },
+
     'llaveros.html': {
         'TITLE': 'Llaveros Personalizados',
-        'NUMBER': '08',
+        'NUMBER': '07',
         'DESC': 'Pequeñas obras de arte que acompañan tu día a día, perfectos para un regalo íntimo o seguridad identificativa robusta.',
         'FEATURES': [
             ('Madera de Haya Grabada', 'Acabado visual artesanal, natural y cálido con la inscripción inconfundible del láser.'),
@@ -324,7 +312,7 @@ pages_data = {
     },
     'monocapa.html': {
         'TITLE': 'Cuadros Monocapa',
-        'NUMBER': '09',
+        'NUMBER': '08',
         'DESC': 'Minimalismo con alma: siluetas precisas de una sola capa cortadas con impacto directo que visten y reinventan la pared que ocupan.',
         'FEATURES': [
             ('Conceptuales en Madera Natural', 'Contornos estilizados proyectando calidez total ideal para estilos de decoración nórdica.'),
@@ -338,7 +326,7 @@ pages_data = {
     },
     'luz.html': {
         'TITLE': 'Cuadros de Luz',
-        'NUMBER': '10',
+        'NUMBER': '09',
         'DESC': 'Luz, decoración y láser. Una alternativa contemporánea al tradicional cuadro. Una lámina translúcida se enciende mostrando diseños espectaculares que enamoran en la oscuridad.',
         'FEATURES': [
             ('Marcos Premium Retroiluminados', 'Bastidor natural trabajado y oscurecido por nosotros enmarcando plexiglás reactivo a la luz lateral.'),

@@ -8,13 +8,12 @@ collections_data = {
     'frases.html': {'price': '10', 'sizes': [20, 30, 45, 60], 'obs': ''},
     'escudos.html': {'price': '6', 'sizes': [20, 30, 45, 60], 'obs': 'Medida de la madera exterior.'},
     'shadowbox.html': {'price': '25', 'sizes': [20, 30, 42, 60], 'obs': 'Medidas más 2 cm de marco.'},
-    'marcos.html': {'price': '15', 'sizes': [20, 30, 45, 60], 'obs': ''},
     'llaveros.html': {'price': '6', 'sizes': None, 'obs': ''},
     'monocapa.html': {'price': '12', 'sizes': [20, 30, 45, 60], 'obs': ''},
-    'luz.html': {'price': '25', 'sizes': [20, 30, 40, 60], 'obs': 'Medidas más 2 cm de marco.'},
-    'caricaturas.html': {'price': '15', 'sizes': [20, 30, 40, 60], 'obs': 'Medidas más 2 cm de marco si modelo lo lleva.'},
-    'aura.html': {'price': '20', 'sizes': [20, 30, 40, 60], 'obs': 'Grosor excepcional y metacrilato de alta pureza.'},
-    'epic.html': {'price': '20', 'sizes': [20, 30, 40, 60], 'obs': 'Iluminación y efecto 3D integrados.'}
+    'luz.html': {'price': '25', 'sizes': [20, 30, 40, 60], 'obs': 'Marco en contrachapado (económico) o pino macizo (premium).'},
+    'caricaturas.html': {'price': '15', 'sizes': [20, 30, 40, 60], 'obs': 'Marco opcional en contrachapado (económico) o pino macizo (premium).'},
+    'aura.html': {'price': '20', 'sizes': [20, 30, 40, 60], 'obs': 'Marco opcional en contrachapado (económico) o pino macizo (premium).'},
+    'epic.html': {'price': '20', 'sizes': [20, 30, 40, 60], 'obs': 'Marco opcional en contrachapado (económico) o pino macizo (premium).'}
 }
 
 def generate_html_block(data):
@@ -91,7 +90,7 @@ def generate_html_block(data):
 
             <div class="shipping-banner">
                 <span class="icon">📦</span> 
-                <p><strong>Envíos:</strong> De 1,99€ a 4,99€. <strong>¡GRATIS para pedidos superiores a 75€!</strong></p>
+                <p><strong>Envíos:</strong> Nacionales desde 1,99€. <strong>¡Envíos a Europa con InPost disponibles!</strong></p>
             </div>
 
             <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4" style="width: 100%; text-align: center; display: block; font-size: 1.1rem; padding: 15px;">Pedir Presupuesto / Hacer Encargo</a>

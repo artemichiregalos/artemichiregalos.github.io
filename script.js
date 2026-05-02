@@ -498,3 +498,75 @@ function detenerIntervaloGaleria() {
         setTimeout(() => banner.remove(), 400);
     });
 })();
+
+// ─── WIDGET MULTI-IDIOMA ─────────────────────────────────────
+(function initI18nWidget() {
+    // 1. Crear el contenedor oculto de Google Translate
+    const gtContainer = document.createElement('div');
+    gtContainer.id = 'google_translate_element';
+    gtContainer.style.display = 'none';
+    document.body.appendChild(gtContainer);
+
+    // 2. Inyectar el script de Google Translate
+    window.googleTranslateElementInit = function() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es', 
+            includedLanguages: 'en,fr,de,it,pt,es', 
+            autoDisplay: false
+        }, 'google_translate_element');
+    };
+    const gtScript = document.createElement('script');
+    gtScript.type = 'text/javascript';
+    gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(gtScript);
+
+    // 3. Crear el menú desplegable de idiomas y añadirlo al navbar
+    const navbarLinks = document.querySelector('.nav-links') || document.querySelector('.navbar');
+    if (!navbarLinks) return;
+
+    const langHTML = `
+        <li class="lang-menu">
+            <button id="current-lang-btn" class="lang-menu-btn">🇪🇸 ES</button>
+            <div class="lang-dropdown">
+                <a href="#" onclick="changeLang('es'); return false;">🇪🇸 Español</a>
+                <a href="#" onclick="changeLang('en'); return false;">🇬🇧 English</a>
+                <a href="#" onclick="changeLang('fr'); return false;">🇫🇷 Français</a>
+                <a href="#" onclick="changeLang('de'); return false;">🇩🇪 Deutsch</a>
+                <a href="#" onclick="changeLang('it'); return false;">🇮🇹 Italiano</a>
+                <a href="#" onclick="changeLang('pt'); return false;">🇵🇹 Português</a>
+            </div>
+        </li>
+    `;
+    
+    // Lo añadimos al final de los enlaces de navegación
+    if (navbarLinks.tagName.toLowerCase() === 'ul') {
+        navbarLinks.insertAdjacentHTML('beforeend', langHTML);
+    } else {
+        const tempContainer = document.createElement('div');
+        tempContainer.innerHTML = `<ul style="list-style:none;margin:0;padding:0;display:flex;align-items:center;">${langHTML}</ul>`;
+        navbarLinks.appendChild(tempContainer.firstElementChild);
+    }
+
+    // 4. Lógica de cambio de idioma
+    window.changeLang = function(lang) {
+        // Limpiar cookies de GTranslate previas
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
+        
+        if (lang !== 'es') {
+            document.cookie = \`googtrans=/es/\${lang}; path=/;\`;
+            document.cookie = \`googtrans=/es/\${lang}; path=/; domain=\${location.hostname};\`;
+        }
+        location.reload();
+    };
+
+    // 5. Configurar el botón actual según la cookie
+    const match = document.cookie.match(/googtrans=\/es\/([a-z]{2})/);
+    const flags = { 'en': '🇬🇧 EN', 'fr': '🇫🇷 FR', 'de': '🇩🇪 DE', 'it': '🇮🇹 IT', 'pt': '🇵🇹 PT', 'es': '🇪🇸 ES' };
+    const currentLangCode = (match && match[1]) ? match[1] : 'es';
+    
+    const btn = document.getElementById('current-lang-btn');
+    if (btn) {
+        btn.innerText = flags[currentLangCode] || '🌍 Idioma';
+    }
+})();
