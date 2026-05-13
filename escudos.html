@@ -168,10 +168,8 @@
         </div>
         <div class="product-features-grid">
             <div class="feature-card fade-in">
-                <div id="slideshow-pared" style="position: relative; width: 100%; aspect-ratio: 4/5; margin-bottom: 1.5rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.4); overflow: hidden;">
-                    <img class="ss-img" src="assets/catalogo/escudos/1.webp" alt="Escudo Pared 1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; opacity: 1; z-index: 3;">
-                    <img class="ss-img" src="assets/catalogo/escudos/2.webp" alt="Escudo Pared 2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; opacity: 0; z-index: 2;">
-                    <img class="ss-img" src="assets/catalogo/escudos/5.webp" alt="Escudo Pared 3" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; opacity: 0; z-index: 1;">
+                <div style="position: relative; width: 100%; aspect-ratio: 4/5; margin-bottom: 1.5rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.4); overflow: hidden;">
+                    <img src="assets/catalogo/escudos/5.webp" alt="Escudo de Pared a Color" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <h4>Escudos para Pared</h4>
                 <p>Reproducción espectacular a gran formato para presidir estancias, salones y pasillos blasonados. La máxima inmersión de tu linaje.</p>
@@ -206,8 +204,7 @@
                 <li style="display: flex; align-items: flex-start; gap: 15px;">
                     <div style="font-size: 1.5rem;">🛡️</div> 
                     <div><strong class="gold-text" style="font-size: 1.25rem; display: block; margin-bottom: 0.2rem;">Escudos de Pared</strong> 
-                    El blasón trasero se fabrica en contrachapado de <strong style="color: var(--text);">okumen de 4mm</strong>. Puede ir teñida al gusto. El efecto exclusivo de rústico <strong style="color: var(--text);">"quemado a fuego"</strong> está disponible bajo consulta.<br> 
-                    El propio escudo frontal puede imprimirse a todo color sobre foam ligero de 5mm, o bien ser grabado majestuosamente sobre <strong style="color: var(--text);">metacrilato símil metalizado (dorado o plateado)</strong> (esto último dependerá de lo que permita la armería y el tipo de colores de tu escudo heráldico original).</div>
+                    El blasón trasero se fabrica en contrachapado de <strong style="color: var(--text);">okumen de 4mm</strong>. El propio escudo frontal se imprime a todo color sobre foam ligero de 5mm.</div>
                 </li>
             </ul>
         </div>
@@ -309,27 +306,7 @@
         document.body.classList.add('loaded');
         setTimeout(() => document.querySelector('.category-hero').classList.add('visible'), 100);
 
-        // Slideshow Crossfade para Escudo de Pared
-        const ssImages = document.querySelectorAll('#slideshow-pared .ss-img');
-        if (ssImages.length > 0) {
-            let currentIndex = 0;
-            setInterval(() => {
-                const nextIndex = (currentIndex + 1) % ssImages.length;
-                // Prepare next image
-                ssImages[nextIndex].style.zIndex = '2';
-                ssImages[nextIndex].style.opacity = '1';
-                
-                // Fade out current image revealing next
-                ssImages[currentIndex].style.zIndex = '3';
-                ssImages[currentIndex].style.opacity = '0';
-                
-                // Clean up z-index after transition
-                setTimeout(() => {
-                    ssImages[currentIndex].style.zIndex = '1';
-                    currentIndex = nextIndex;
-                }, 1500); 
-            }, 4500); // 3s static + 1.5s fade
-        }
+
     </script>
 </body>
 </html>
