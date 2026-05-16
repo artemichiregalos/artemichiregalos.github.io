@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -410,10 +410,11 @@
             <div class="modal-body">
                 <h3 id="modal-title"></h3>
                 <div class="tags-list" id="modal-tags"></div>
-                <a id="modal-whatsapp" href="#" target="_blank" class="btn primary-btn"
-                   style="display:block; text-align:center; text-decoration:none;">
+                <button id="modal-whatsapp-share" class="btn primary-btn"
+                   style="display:block; width:100%; text-align:center; cursor:pointer; border:none; font-size:1rem; padding:0.85rem 1.5rem; border-radius:8px;">
                     💬 Quiero este diseño por WhatsApp
-                </a>
+                </button>
+                <p id="share-status" style="text-align:center; font-size:0.8rem; color:var(--clr-gold); margin-top:0.5rem; display:none;"></p>
             </div>
         </div>
     </div>
@@ -595,8 +596,90 @@
         }
     }
 
+    // ── Variable para modelo actual en modal ──
+    let currentModalModelo = null;
+
+    // ── Obtener imagen del canvas como File ──
+    function getCanvasImageFile(canvas, nombre) {
+        return new Promise(resolve => {
+            canvas.toBlob(blob => {
+                if (!blob) { resolve(null); return; }
+                const safeName = (nombre || 'modelo').replace(/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ ]/g, '').trim().replace(/\s+/g, '_');
+                const file = new File([blob], `Artemichi_${safeName}.png`, { type: 'image/png' });
+                resolve(file);
+            }, 'image/png');
+        });
+    }
+
+    // ── Compartir modelo por WhatsApp con foto ──
+    async function shareModelWhatsApp() {
+        if (!currentModalModelo) return;
+        const modelo = currentModalModelo;
+        const canvas = document.getElementById("modal-canvas");
+        const statusEl = document.getElementById("share-status");
+        const waMsg = `Hola Artemichi 👋 me interesa el diseño "${modelo.nombre}" (Nº${modelo.id}) para corte láser. ¿Podéis informarme?`;
+        const waUrl = `https://wa.me/34711240002?text=${encodeURIComponent(waMsg)}`;
+
+        // Intentar Web Share API con archivo
+        if (navigator.canShare) {
+            try {
+                const file = await getCanvasImageFile(canvas, modelo.nombre);
+                if (file) {
+                    const shareData = {
+                        title: `Diseño Artemichi: ${modelo.nombre}`,
+                        text: waMsg,
+                        files: [file]
+                    };
+                    if (navigator.canShare(shareData)) {
+                        statusEl.textContent = "Abriendo menú de compartir...";
+                        statusEl.style.display = "block";
+                        await navigator.share(shareData);
+                        statusEl.style.display = "none";
+                        return;
+                    }
+                }
+            } catch (err) {
+                // Si el usuario cancela el share, no hacer nada más
+                if (err.name === 'AbortError') {
+                    statusEl.style.display = "none";
+                    return;
+                }
+                console.log('Web Share con archivo no soportado, usando fallback.');
+            }
+        }
+
+        // Fallback: descargar imagen + abrir WhatsApp con texto
+        try {
+            statusEl.textContent = "📥 Descargando imagen...";
+            statusEl.style.display = "block";
+            const file = await getCanvasImageFile(canvas, modelo.nombre);
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = file.name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+            statusEl.textContent = "✅ Imagen descargada. Abriendo WhatsApp...";
+            // Dar tiempo a que se vea el mensaje antes de abrir WhatsApp
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+                statusEl.innerHTML = "📎 Adjunta la imagen descargada al chat de WhatsApp";
+                setTimeout(() => { statusEl.style.display = "none"; }, 6000);
+            }, 800);
+        } catch (err) {
+            console.error('Error en fallback:', err);
+            window.open(waUrl, '_blank');
+            statusEl.style.display = "none";
+        }
+    }
+
     // ── Abrir modal ──
     function openModal(modelo) {
+        currentModalModelo = modelo;
         const canvas = document.getElementById("modal-canvas");
         drawWithWatermark(canvas, modelo.archivo, false);
 
@@ -606,12 +689,7 @@
         tagsList.innerHTML = (modelo.tags || [])
             .map(t => `<span class="tag-pill">${t}</span>`).join("");
 
-        const waMsg = encodeURIComponent(
-            `Hola Artemichi 👋 me interesa el diseño "${modelo.nombre}" (Nº${modelo.id}) para corte láser. ¿Podéis informarme?`
-        );
-        document.getElementById("modal-whatsapp").href =
-            `https://wa.me/34711240002?text=${waMsg}`;
-
+        document.getElementById("share-status").style.display = "none";
         document.getElementById("model-modal").classList.add("active");
         document.body.style.overflow = "hidden";
     }
@@ -916,6 +994,7 @@
         if (e.target === document.getElementById("model-modal")) closeModal();
     });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+    document.getElementById("modal-whatsapp-share").addEventListener("click", shareModelWhatsApp);
 
     init();
     </script>
