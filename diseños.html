@@ -620,37 +620,9 @@
         const waMsg = `Hola Artemichi 👋 me interesa el diseño "${modelo.nombre}" (Nº${modelo.id}) para corte láser. ¿Podéis informarme?`;
         const waUrl = `https://wa.me/34711240002?text=${encodeURIComponent(waMsg)}`;
 
-        // Intentar Web Share API con archivo
-        if (navigator.canShare) {
-            try {
-                const file = await getCanvasImageFile(canvas, modelo.nombre);
-                if (file) {
-                    const shareData = {
-                        title: `Diseño Artemichi: ${modelo.nombre}`,
-                        text: waMsg,
-                        files: [file]
-                    };
-                    if (navigator.canShare(shareData)) {
-                        statusEl.textContent = "Abriendo menú de compartir...";
-                        statusEl.style.display = "block";
-                        await navigator.share(shareData);
-                        statusEl.style.display = "none";
-                        return;
-                    }
-                }
-            } catch (err) {
-                // Si el usuario cancela el share, no hacer nada más
-                if (err.name === 'AbortError') {
-                    statusEl.style.display = "none";
-                    return;
-                }
-                console.log('Web Share con archivo no soportado, usando fallback.');
-            }
-        }
-
-        // Fallback: descargar imagen + abrir WhatsApp con texto
         try {
-            statusEl.textContent = "📥 Descargando imagen...";
+            // 1. Descargar la imagen del modelo
+            statusEl.textContent = "📥 Guardando imagen del diseño...";
             statusEl.style.display = "block";
             const file = await getCanvasImageFile(canvas, modelo.nombre);
             if (file) {
@@ -663,15 +635,17 @@
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
             }
-            statusEl.textContent = "✅ Imagen descargada. Abriendo WhatsApp...";
-            // Dar tiempo a que se vea el mensaje antes de abrir WhatsApp
+
+            // 2. Abrir WhatsApp directo al número con el texto
+            statusEl.textContent = "✅ Imagen guardada. Abriendo WhatsApp...";
             setTimeout(() => {
                 window.open(waUrl, '_blank');
-                statusEl.innerHTML = "📎 Adjunta la imagen descargada al chat de WhatsApp";
-                setTimeout(() => { statusEl.style.display = "none"; }, 6000);
-            }, 800);
+                statusEl.innerHTML = "📎 Adjunta la imagen descargada en el chat de WhatsApp";
+                setTimeout(() => { statusEl.style.display = "none"; }, 8000);
+            }, 600);
         } catch (err) {
-            console.error('Error en fallback:', err);
+            console.error('Error:', err);
+            // En caso de error, al menos abrir WhatsApp con el texto
             window.open(waUrl, '_blank');
             statusEl.style.display = "none";
         }
