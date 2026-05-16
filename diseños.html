@@ -621,11 +621,46 @@
         const waUrl = `https://wa.me/34711240002?text=${encodeURIComponent(waMsg)}`;
 
         try {
-            // 1. Descargar la imagen del modelo
-            statusEl.textContent = "📥 Guardando imagen del diseño...";
+            statusEl.textContent = "⏳ Preparando imagen...";
             statusEl.style.display = "block";
+            
             const file = await getCanvasImageFile(canvas, modelo.nombre);
-            if (file) {
+            if (!file) throw new Error("No se pudo generar la imagen");
+
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            // 1. En móviles, usar Web Share API (adjunta imagen nativamente a la app de WhatsApp)
+            if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
+                try {
+                    await navigator.share({
+                        files: [file],
+                        title: modelo.nombre,
+                        text: waMsg
+                    });
+                    statusEl.style.display = "none";
+                    return; // Éxito compartiendo
+                } catch (shareError) {
+                    console.log("Share cancelado", shareError);
+                    statusEl.style.display = "none";
+                    return;
+                }
+            }
+
+            // 2. En PC, intentar copiar al portapapeles para que puedan hacer Ctrl+V
+            let copiado = false;
+            try {
+                if (navigator.clipboard && window.ClipboardItem) {
+                    await navigator.clipboard.write([
+                        new ClipboardItem({ [file.type]: file })
+                    ]);
+                    copiado = true;
+                }
+            } catch (clipError) {
+                console.log("No se pudo copiar al portapapeles", clipError);
+            }
+
+            // 3. Fallback: Descargar la imagen si no se pudo copiar
+            if (!copiado) {
                 const url = URL.createObjectURL(file);
                 const a = document.createElement('a');
                 a.href = url;
@@ -636,16 +671,19 @@
                 URL.revokeObjectURL(url);
             }
 
-            // 2. Abrir WhatsApp directo al número con el texto
-            statusEl.textContent = "✅ Imagen guardada. Abriendo WhatsApp...";
+            // Abrir WhatsApp
+            statusEl.textContent = copiado ? "✅ Imagen copiada. Abriendo WhatsApp..." : "✅ Imagen guardada. Abriendo WhatsApp...";
             setTimeout(() => {
                 window.open(waUrl, '_blank');
-                statusEl.innerHTML = "📎 Adjunta la imagen descargada en el chat de WhatsApp";
+                statusEl.innerHTML = copiado 
+                    ? "📎 <b>¡Listo!</b> En el chat de WhatsApp pulsa <b>Ctrl+V</b> para pegar la imagen." 
+                    : "📎 Adjunta la imagen descargada en el chat de WhatsApp";
                 setTimeout(() => { statusEl.style.display = "none"; }, 8000);
-            }, 600);
+            }, 800);
+
         } catch (err) {
-            console.error('Error:', err);
-            // En caso de error, al menos abrir WhatsApp con el texto
+            console.error('Error al compartir:', err);
+            // En caso de error crítico, abrimos WhatsApp solo con el texto
             window.open(waUrl, '_blank');
             statusEl.style.display = "none";
         }
