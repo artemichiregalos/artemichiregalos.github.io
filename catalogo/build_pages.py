@@ -1,4 +1,5 @@
 import os
+import urllib.parse
 
 template = """<!DOCTYPE html>
 <html lang="es">
@@ -145,7 +146,7 @@ template = """<!DOCTYPE html>
         <h2 class="category-subtitle">Colección {NUMBER}</h2>
         <h1 class="category-title">{TITLE}</h1>
         <p class="category-desc">{DESC}</p>
-        <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4">Consultar Precios por WhatsApp</a>
+        <a href="{WA_URL_PRESUPUESTO}" target="_blank" class="btn primary-btn mt-4">Consultar Precios por WhatsApp</a>
     </header>
 
     <section class="product-types">
@@ -170,7 +171,7 @@ template = """<!DOCTYPE html>
         <div class="container text-center">
             <h3>Magia en cada detalle.</h3>
             <p class="mb-4 text-muted mt-3" style="font-size: 1.2rem;">Atención exclusiva para cada cliente.</p>
-            <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
+            <a href="{WA_URL_ENCARGO}" target="_blank" class="btn primary-btn mt-2" style="font-size: 1.1rem; padding: 15px 30px;">Hacer mi Encargo por WhatsApp</a>
         </div>
     </section>
 
@@ -341,14 +342,22 @@ pages_data = {
 
 target_dir = "../"
 for filename, data in pages_data.items():
-    feats_str = "\\n".join([make_feature(t, d) for t, d in data['FEATURES']])
-    mats_str = "\\n".join([make_material(i, t, d) for i, t, d in data['MATERIALS']])
+    feats_str = "\n".join([make_feature(t, d) for t, d in data['FEATURES']])
+    mats_str = "\n".join([make_material(i, t, d) for i, t, d in data['MATERIALS']])
+    
+    # Generar URLs de WhatsApp preconfiguradas
+    msg_presupuesto = f"Hola Artemichi 👋 Estoy interesado en pedir presupuesto sobre la colección de {data['TITLE']}."
+    msg_encargo = f"Hola Artemichi 👋 Me gustaría hacer un encargo de la colección de {data['TITLE']}."
+    wa_url_presupuesto = f"https://wa.me/34711240002?text={urllib.parse.quote(msg_presupuesto)}"
+    wa_url_encargo = f"https://wa.me/34711240002?text={urllib.parse.quote(msg_encargo)}"
     
     html = template.replace("{TITLE}", data['TITLE']) \
                    .replace("{NUMBER}", data['NUMBER']) \
                    .replace("{DESC}", data['DESC']) \
                    .replace("{FEATURES}", feats_str) \
-                   .replace("{MATERIALS}", mats_str)
+                   .replace("{MATERIALS}", mats_str) \
+                   .replace("{WA_URL_PRESUPUESTO}", wa_url_presupuesto) \
+                   .replace("{WA_URL_ENCARGO}", wa_url_encargo)
     
     filepath = os.path.join(target_dir, filename)
     with open(filepath, "w", encoding="utf-8") as f:

@@ -1,12 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // --- SEGURIDAD ANTI-COPIAS Y CAPTURAS ---
-    // Prevenir click derecho
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    // Prevenir atajos de teclado
+    // --- SEGURIDAD ANTI-COPIAS Y CAPTURAS SELECCIONADAS ---
+    // Prevenir click derecho solo en imágenes y lienzos de diseño
+    document.addEventListener('contextmenu', event => {
+        const target = event.target;
+        if (target.tagName === 'IMG' || 
+            target.tagName === 'CANVAS' || 
+            target.closest('.card-thumb') || 
+            target.closest('.model-canvas-wrapper') || 
+            target.closest('.gallery-image-container') ||
+            target.closest('.image-placeholder') ||
+            target.closest('.swatch')) {
+            event.preventDefault();
+        }
+    });
+
+    // Prevenir atajos de inspección o guardado que descarguen fácilmente diseños
     document.addEventListener('keydown', (e) => {
         if (e.key === 'F12') { e.preventDefault(); return false; }
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
-        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'c')) { e.preventDefault(); return false; }
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J')) { e.preventDefault(); return false; }
+        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) { e.preventDefault(); return false; }
         if (e.key === 'PrintScreen') {
             navigator.clipboard.writeText('');
             e.preventDefault(); 
@@ -134,7 +146,15 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 'java', name: 'Verde Java', hex: '#00FA9A' },
         { id: 'dragon', name: 'Verde Dragón', hex: '#004b23' },
         { id: 'perla', name: 'Gris Perla', hex: '#D3D3D3' },
-        { id: 'lobo', name: 'Gris Lobo', hex: '#555555' }
+        { id: 'lobo', name: 'Gris Lobo', hex: '#555555' },
+        { id: 'roble', name: 'Madera Roble', hex: '#B58A58' },
+        { id: 'ebonizado', name: 'Madera Ébano', hex: '#1E1E1E' },
+        { id: 'plata', name: 'Plata Vinilo', hex: '#D5D5D5' },
+        { id: 'oro', name: 'Oro Vinilo', hex: '#D4AF37' },
+        { id: 'carbono', name: 'Fibra Carbono', hex: '#2D2D2D' },
+        { id: 'espejo', name: 'Vinilo Espejo', hex: '#A1B0B8' },
+        { id: 'okumen', name: 'Okumen Base', hex: '#B37A5F' },
+        { id: 'pino', name: 'Madera Pino', hex: '#E3C09B' }
     ];
 
     const modal = document.getElementById("colors-modal");
@@ -200,6 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         colorChart.forEach((color, index) => {
             const item = document.createElement("div");
             item.classList.add("color-item");
+            item.dataset.id = color.id;
             item.style.backgroundColor = color.hex;
             
             // Add name explicitly
@@ -219,6 +240,31 @@ document.addEventListener("DOMContentLoaded", () => {
             colorsGrid.appendChild(item);
         });
     }
+
+    // Hacer las muestras (swatches) de acabados clicables para abrir y preseleccionar en el modal
+    const swatches = document.querySelectorAll(".swatch");
+    swatches.forEach(swatch => {
+        swatch.addEventListener("click", () => {
+            const classes = swatch.className.split(" ");
+            const colorId = classes.find(c => c !== "swatch");
+            
+            if (modal) {
+                modal.classList.add("show");
+                document.body.style.overflow = "hidden"; // Evitar scroll de fondo
+            }
+            
+            if (colorId) {
+                // Pequeño retardo para asegurar que la modal esté renderizada y visible
+                setTimeout(() => {
+                    const targetItem = document.querySelector(`.color-item[data-id="${colorId}"]`);
+                    if (targetItem) {
+                        targetItem.click();
+                        targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }, 50);
+            }
+        });
+    });
 
     function showRecommendations(selectedColor, forceShuffle = false) {
         currentSelectedColor = selectedColor;

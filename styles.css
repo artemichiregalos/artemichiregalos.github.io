@@ -37,15 +37,14 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    /* Anti-Copy Protection */
+}
+
+/* Prevent dragging and right clicking natively on media and protect visual designs */
+img, canvas, .card-thumb, .model-canvas-wrapper, .swatch, .gallery-image-container, .image-placeholder {
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-
-/* Prevent dragging and right clicking natively on media */
-img, canvas {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;

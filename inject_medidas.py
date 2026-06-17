@@ -1,5 +1,6 @@
 import os
 import re
+import urllib.parse
 
 collections_data = {
     'natalicios.html': {'price': '15', 'sizes': [20, 30, 45, 60], 'obs': ''},
@@ -16,10 +17,30 @@ collections_data = {
     'epic.html': {'price': '20', 'sizes': [20, 30, 40, 60], 'obs': 'Marco opcional en contrachapado (económico) o pino macizo (premium).'}
 }
 
-def generate_html_block(data):
+def generate_html_block(data, filename):
     sizes = data['sizes']
     obs = data['obs']
     price = data['price']
+    
+    # Determinar nombre elegante del producto
+    clean_name = filename.replace('.html', '').capitalize()
+    names_map = {
+        'natalicios': 'Natalicio',
+        'relojes': 'Reloj de Pared',
+        'multicapa': 'Cuadro Multicapa',
+        'frases': 'Letras y Frases corpóreas',
+        'escudos': 'Escudo Heráldico',
+        'shadowbox': 'Shadowbox',
+        'llaveros': 'Llaveros',
+        'monocapa': 'Cuadro Monocapa',
+        'luz': 'Cuadro de Luz',
+        'caricaturas': 'Caricatura personalizada',
+        'aura': 'Retrato AURA',
+        'epic': 'Cuadro EPIC'
+    }
+    prod_name = names_map.get(filename.replace('.html', ''), clean_name)
+    wa_msg = f"Hola Artemichi 👋 Estoy interesado en pedir presupuesto/información sobre: {prod_name}."
+    wa_url = f"https://wa.me/34711240002?text={urllib.parse.quote(wa_msg)}"
     
     html = f"""
     <!-- PANEL DE MEDIDAS Y PRECIOS INYECTADO -->
@@ -93,7 +114,7 @@ def generate_html_block(data):
                 <p><strong>Envíos:</strong> Nacionales desde 1,99€. <strong>¡Envíos a Europa con InPost disponibles!</strong></p>
             </div>
 
-            <a href="https://wa.me/34711240002" target="_blank" class="btn primary-btn mt-4" style="width: 100%; text-align: center; display: block; font-size: 1.1rem; padding: 15px;">Pedir Presupuesto / Hacer Encargo</a>
+            <a href="{wa_url}" target="_blank" class="btn primary-btn mt-4" style="width: 100%; text-align: center; display: block; font-size: 1.1rem; padding: 15px;">Pedir Presupuesto / Hacer Encargo</a>
         </div>
     </section>
     <!-- FIN PANEL INYECTADO -->
@@ -126,7 +147,7 @@ for filename, data in collections_data.items():
         
     match = anchor_re.search(content)
     if match:
-        block = generate_html_block(data)
+        block = generate_html_block(data, filename)
         content = content[:match.start()] + '\n' + block + '\n' + content[match.start():]
         print(f"Inyectado en {filename} antes del ancla.")
         

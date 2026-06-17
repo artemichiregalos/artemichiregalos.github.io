@@ -557,7 +557,7 @@
             card.className = "model-card";
             card.innerHTML = `
                 <div class="model-canvas-wrapper">
-                    <canvas id="canvas-${modelo.id}"></canvas>
+                    <canvas id="canvas-${modelo.id}" role="img" aria-label="Diseño para corte y grabado láser: ${modelo.nombre} - Categoría ${formatCat(modelo.categoria)}"></canvas>
                 </div>
                 <div class="model-info">
                     <h5>${modelo.nombre}</h5>
@@ -694,6 +694,7 @@
         currentModalModelo = modelo;
         const canvas = document.getElementById("modal-canvas");
         drawWithWatermark(canvas, modelo.archivo, false);
+        canvas.setAttribute("aria-label", `Detalle de diseño para corte láser: ${modelo.nombre}`);
 
         document.getElementById("modal-title").textContent = modelo.nombre;
 
